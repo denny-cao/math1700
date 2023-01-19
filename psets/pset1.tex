@@ -226,6 +226,44 @@
         Let $S$ be the set $\set*{1 \leq k \leq 10 \eval k \in \ints}$. We can create a set of tuples $(a,b)$, where $a \land b \in S \land a \neq b$ such that $b=ka, k \in \nats$. Let $P$ be the set of these tuples; $P = \set*{(1,7), (2,6), (3,9), (4,8), (5,10)}$. By selecting 5 numbers, we can select one number from each tuple. By selecting 1 more number, we guarentee that at least one tuple is in $P$. Since $P$ is a set of tuples where one number is a multiple of another, if you select 6 numbers from the set $S$, one must be a multiple of another.
     \end{proof}
     \item \textbf{There are 9 points, inside an equilateral triangle, and no line passes through more than two of these points, which means that any three points are the corners of a triangle. Explain why it must be possible to find three of these points, so that the area of the triangle formed by those three has at most one fourth of the area of the original triangle.}
-    
+    \begin{proof}
+        We can partition an equilateral triangle into 4 equal parts as shown:
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (4,0);
+                \coordinate (C) at (2, {sin(60) * 4});
+                
+                % Midpoints
+                \coordinate (AB) at ($(A)!0.5!(B)$);
+                \coordinate (BC) at ($(B)!0.5!(C)$);
+                \coordinate (CA) at ($(C)!0.5!(A)$);
+
+                % Draw triangle ABC
+                \draw[myred!60!black] (A) -- (B) -- (C) -- cycle;
+
+                % Connect midpoints
+                \draw[dashed, myred!60!black] (AB) -- (BC) -- (CA) -- cycle;
+            \end{tikzpicture}
+        \end{figure}
+        As the area of the sections are the same, there is an equal probability that any point will be in each section. Let each smaller triangle be a pigeonhole, and each point a pigeon. With 9 points, we guarantee that at least one section will have at least 3 points. The maximum area of these three points is the area of the partition triangle it belongs to, which is $\frac{1}{4}$ the area of the original triangle. Thus, with 9 points, it is possible to find three points so that the area of the triangle formed by those three has at most one fourth of the area of the original triangle.
+    \end{proof}
+\end{enumerate}
+\section*{Portfolio Problem}
+\begin{enumerate}[(1)]
+    \stepcounter{enumi}
+    \stepcounter{enumi}
+    \stepcounter{enumi}
+    \stepcounter{enumi}
+    \stepcounter{enumi}
+    \stepcounter{enumi}
+    \stepcounter{enumi}
+    \stepcounter{enumi}
+    \stepcounter{enumi}
+    \item \textbf{Show that it is impossible to pick 50 points inside a 13×8 rectangle so that the distance between any two of these points is at least 2 units. (Hint: Draw a circle of radius 1 around each point.)}
+    \begin{proof}
+        If the distance between any two points is at least 2 units, then we can draw a circle of radius 1 around each point and the circles will not overlap. With 50 points, there are 50 circles, totalling to an area of $50\pi$. The area of the rectangle is $13 \cdot 8 = 104$. Let each unit squared of the rectangle be a pigeonhole, and each unit squared of the circles be a pigeon. With 104 pigeonholes, we can place 104 pigeons in each pigeonhole. With an additional circle, there must be at least one pigeonhole with 2 circles. Thus, it is impossible to pick 50 points inside a 13×8 rectangle so that the distance between any two of these points is at least 2 units.
+    \end{proof}
 \end{enumerate}
 \end{document}
