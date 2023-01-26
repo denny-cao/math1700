@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1674703901 "/home/akkaro/math1700/psets/pset2/first_submission/pset2.tex" "pset2.pdf" "pset2" 1674703902
-  "/home/akkaro/math1700/psets/pset2/first_submission/pset2.tex" 1674703901 15700 e16c6d6d9402b5187e8a76f26bc094dc ""
+["pdflatex"] 1674707667 "/home/akkaro/math1700/psets/pset2/first_submission/pset2.tex" "pset2.pdf" "pset2" 1674707669
+  "/home/akkaro/math1700/psets/pset2/first_submission/pset2.tex" 1674707667 16098 7ecc53bf4aa7bd280c47dc0bb4b7a3fa ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -241,9 +241,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1666161220 4595883 1a8137d784f6ac4a90cecb4bdd05a7cf ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1666161259 3058865 e4f58d72146e9845b97136b6e6ac75ce ""
   "/usr/local/texlive/2022/texmf.cnf" 1666161215 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "pset2.aux" 1674703902 1601 df9ba898970a6b857b8da9588cd9e1f7 "pdflatex"
-  "pset2.out" 1674703902 850 8e8fe4b029ef836c358a8add83cc5d8b "pdflatex"
-  "pset2.tex" 1674703901 15700 e16c6d6d9402b5187e8a76f26bc094dc ""
+  "pset2.aux" 1674707669 1601 0dc1d102f7e9872a4ddf4653471aed6b "pdflatex"
+  "pset2.out" 1674707669 850 8e8fe4b029ef836c358a8add83cc5d8b "pdflatex"
+  "pset2.tex" 1674707667 16098 7ecc53bf4aa7bd280c47dc0bb4b7a3fa ""
   (generated)
   "pset2.aux"
   "pset2.log"

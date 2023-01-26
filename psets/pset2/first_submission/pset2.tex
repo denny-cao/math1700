@@ -187,8 +187,10 @@
             
             Hi friend! Your claim can be expressed as the following: 
             \[ \forall x, \forall y \in \nats(P(x,y) \to Q(x,y)) \]
-            Where $P(x,y)$ is the statement that $x > y$ and $Q(x,y)$ is the statement that $x$ has a prime factor greater than $y$. We construct a counterexample by choosing $x = 8$ and $y = 2$. We can verify that $P(8,2)$ is true, but $Q(8,2)$ is false. 
+            Where $P(x,y)$ is the statement that $x > y$ and $Q(x,y)$ is the statement that $x$ has a prime factor greater than $y$. We construct a counterexample by choosing $x = 8$ and $y = 2$. We can verify that $P(8,2)$ is true, but $Q(8,2)$ is false. As $\exists x, \exists y \in \nats \mid (P(x,y) \land \neg Q(x,y))$, the original statement is false.
         \end{proof}
+            The issue with your claim is saying ``as the numbers get bigger, their prime factors have to get bigger.'' This statement implies a strictly increasing relation between the natural numbers and their prime factors. However, as shown, this is not the case. Hope this helps!
+
         --- \name
     \end{enumerate}
     \section{Step Toward a Proof That There Are Infinitely Many Primes}
@@ -244,7 +246,7 @@
         \setcounter{enumi}{9}
         \item \textbf{Put together the ideas from the previous exercises to show that there are infinitely many prime numbers. That is, describe a machine that takes as its input a finite list of prime numbers, and outputs a prime number that is not on the input list. (It might help to refer to the fact that every natural number larger than 1 has a prime factor.)}\label{question:prove infinitely many primes}
         \begin{proof}
-            Let $S$ be a finite set of primes. Let a machine run an algorithm that creates a new set, $S'$, that is the set of all primes from 2 to the greatest element of $S$. Let $k$ be the product of all the primes in $S'$. From \hyperref[question:produce k]{Question 7}, we know that $k$ has all the primes in $S'$ as factors. From \hyperref[question:k + 1 cannot have n as a factor]{Question 6}, we know that $k+1$ does not have any of the primes in $S'$ as factors. Thus, $k+1$ is a prime number that is not in $S'$. As $S' \supseteq S$, $k+1$ is also not in $S$. We have shown that no finite list can contain all the primes, and thus there are infinitely many primes.
+            Let $S$ be a finite set of primes. Let a machine run an algorithm that creates a new set, $S'$, that is the set of all primes from 2 to the greatest element of $S$. Let $k$ be the product of all the primes in $S'$. From \hyperref[question:produce k]{Question 7}, we know that $k$ has all the primes in $S'$ as factors. From \hyperref[question:k + 1 cannot have n as a factor]{Question 6}, we know that $k+1$ does not have any of the primes in $S'$ as factors. Thus, $k+1$ contains a prime factor that is not in $S'$. As $S' \supseteq S$, this factor is also not in $S$. We have shown that no finite list can contain all the primes, and thus there are infinitely many primes.
         \end{proof}
     \end{enumerate}
     \section{Reflection}
