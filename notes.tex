@@ -104,6 +104,7 @@
 \newcommand{\qeq}{\overset{?}{=}} % questionable equality
 
 \newcommand{\Mod}[1]{\;\mathrm{mod}\; #1} % modulo operator
+\newcommand{\Div}[1]{\;\mathrm{div}\; #1} % integer division operator
 
 % Sets
 \DeclarePairedDelimiter\set{\{}{\}}
@@ -225,7 +226,7 @@
     \begin{definition}
         A set is infinite if a function can map each element to an element of $\nats$. 
     \end{definition}
-    \begin{example}
+    \begin{example}\label{ex:infinite}
         Prove that the set of even integers is infinite.
         \begin{proof}
             We can separate the set of even integers into two subsets: Positive even integers and negative even integers. Let $f(x)$ be a function that maps each element of the set of even integers to a subset of $\nats$. Let $f(x)$ be defined as follows:
@@ -236,4 +237,33 @@
             As each value $x \in \nats$ is mapped to a subset of $\nats$, $f(x)$ is a function.
         \end{proof}
     \end{example}
+    \subsection{Machine Method}
+    \begin{definition}
+        The \textbf{machine method} is a method to demonstrate that a set is infinite by building a machine (an algorithm) that takes as input a finite list and names an element of the set that is not in the list. \textbf{The machine shows that no finite list can contain all the elements of the set.}
+
+    \end{definition}
+    \begin{itemize}
+        \item The machine method can be used to show that a collection is infinite because if we run the machine forever on repeat, it will produce an infinite list.
+        \item A better explanation: If a collection were finite, it would be possible to include all its elements in a finite list. The machine method demonstrates that no finite list can contain the entire collection. So the collection cannot be finite.
+    \end{itemize}
+    \begin{example}
+        Use the machine method to show that there are infinitely many prime numbers.
+        \begin{proof}
+            We give our machine a rule: Take the greatest number in the list and add 2. As we only fed our machine even numbers, adding 2 will always give an even number. Because we added 2 to the greatest number on our list, the sum will be greater than that number. Since our output is greater than the greatest number on the finite list, it must be greater than every number on the finite list. Therefore, the output was not part of our original list.
+        \end{proof}
+    \end{example}
+    \subsection{Prime Numbers}
+    \begin{definition}
+        $x$ \textbf{is a factor of} $y$ if $y=kx, k \in \nats$. Another interpretation is that $x \Div{y}$.
+    \end{definition}
+    \begin{definition}
+        A natural number is a \textbf{prime number} if it is greater than 1 and has no factors other than 1 and itself.
+    \end{definition}
+    \begin{definition}
+        A natural number is a \textbf{composite number} if it is greater than 1 and has at least one factor other than 1 and itself.
+    \end{definition}
+    \begin{itemize}
+        \item From \ref{ex:infinite}, we know that the set of even integers is infinite. Thus, it follows that there are infinitely many composite numbers.
+        \item The number 1 is \textbf{neither prime nor composite}.
+    \end{itemize}
 \end{document}

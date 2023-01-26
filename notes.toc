@@ -5,3 +5,5 @@
 \contentsline {section}{\numberline {2}Numbers and Infinity}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Introduction}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Infinite Sets}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Machine Method}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Prime Numbers}{5}{subsection.2.4}%
