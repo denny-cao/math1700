@@ -1,0 +1,258 @@
+%++++++++++++++++++++++++++++++++++++++++
+\documentclass[article, 12pt]{article}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tabu} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\usepackage{tikz}
+\usepackage{caption} 
+\usepackage{fancyhdr}
+\usepackage{amssymb} % symbols like /therefore
+\usepackage{amsthm} % proofs
+\usepackage{enumerate} % lettered lists
+\usepackage{mathtools} % macros
+\usepackage{stix}
+\usetikzlibrary{scopes}
+% \usepackage{xcolor} \pagecolor[rgb]{0.12549019607,0.1294117647,0.13725490196} \color[rgb]{0.82352941176,0.76862745098,0.62745098039} % dark theme
+\theoremstyle{definition}
+\newtheorem{example}{Example}[subsubsection]
+\newtheorem*{remark}{Remark}
+\newtheorem{theorem}{Theorem}[subsubsection]
+\newtheorem{definition}{Definition}[subsubsection]
+\newtheorem{corollary}{Corollary}[subsubsection]
+\hypersetup{
+	colorlinks=false,      % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{tikz,pgfplots}
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{arrows.meta}
+\tikzset{>=latex} % for LaTeX arrow head
+\contourlength{1.2pt}
+
+\colorlet{xcol}{blue!70!black}
+\colorlet{vcol}{green!60!black}
+\colorlet{myred}{red!70!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{mygreen}{green!70!black}
+\colorlet{mydarkred}{myred!70!black}
+\colorlet{mydarkblue}{myblue!60!black}
+\colorlet{mydarkgreen}{mygreen!60!black}
+\colorlet{acol}{red!50!blue!80!black!80}
+\tikzstyle{CM}=[red!40!black,fill=red!80!black!80]
+\tikzstyle{xline}=[xcol,thick,smooth]
+\tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                  top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{faded mass}=[dashed,line width=0.1,red!30!black!40,fill=red!40!black!10,rounded corners=1,
+                        top color=red!40!black!10,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+\def\rope#1{ \draw[black,line width=1.4] #1; \draw[rope,line width=1.1] #1; }
+\tikzstyle{force}=[->,myred,very thick,line cap=round]
+\tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
+\tikzstyle{Fproj}=[force,myred!40]
+\tikzstyle{myarr}=[-{Latex[length=3,width=2]},thin]
+\def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+\DeclareMathOperator{\sn}{sn}
+\DeclareMathOperator{\cn}{cn}
+\DeclareMathOperator{\dn}{dn}
+\def\N{80} % number of samples in plots
+
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\usepackage{siunitx} % units
+\usepackage{verbatim} 
+\newcommand{\courseNumber}{MATH 1700}
+\newcommand{\courseName}{Ideas in Mathematics}
+\newcommand{\professor}{Professor Rimmer}
+\newcommand{\psetName}{Worksheet 2: Numbers and Infinity Second Submission}
+\newcommand{\dueDate}{Due: January 30, 2023}
+\newcommand{\name}{Denny Cao}
+\pagestyle{fancy}
+\fancyhf{}% clears all header and footer fields
+\fancyfoot[C]{--~\thepage~--}
+\renewcommand*{\headrulewidth}{0.4pt}
+\renewcommand*{\footrulewidth}{0pt}
+\lhead{\name}
+\chead{\courseNumber: \courseName}
+\rhead{\professor}
+
+
+\fancypagestyle{plain}{%
+  \fancyhf{}% clears all header and footer fields
+  \fancyfoot[C]{--~\thepage~--}%
+  \renewcommand*{\headrulewidth}{0pt}%
+  \renewcommand*{\footrulewidth}{0pt}%
+}
+
+% Shortcuts
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil} % ceil function
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor} % floor function
+
+\DeclarePairedDelimiter\paren{(}{)} % parenthesis
+
+\newcommand{\df}{\displaystyle\frac} % displaystyle fraction
+\newcommand{\qeq}{\overset{?}{=}} % questionable equality
+
+\newcommand{\Mod}[1]{\;\mathrm{mod}\; #1} % modulo operator
+
+% Sets
+\DeclarePairedDelimiter\set{\{}{\}}
+\newcommand{\unite}{\cup}
+\newcommand{\inter}{\cap}
+
+\newcommand{\reals}{\mathbb{R}} % real numbers: textbook is Z^+ and 0
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\rats}{\mathbb{Q}}
+
+\newcommand{\degree}{^\circ}
+
+% Counting
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+\setlength\parindent{0pt}
+
+% Sign Charts
+\newdimen\tcolw \tcolw=2.5em % the column width
+\edef\ecatcode{\catcode`&=\the\catcode`&\relax}\catcode`&=4
+\def\sgchart#1#2{\vbox{\offinterlineskip\halign{\hfil##\quad&##\hfil\crcr\sgchartA#2,:,%
+   \omit\sgchartR&\kern.2pt\sgchartS{.5\tcolw}\relax\sgchartE#1,\relax,%
+   \sgchartS{.5\tcolw}\relax\cr
+   \noalign{\kern2pt}&\def~{}\kern.5\tcolw\sgchartD#1,\relax,\cr}}}
+\def\sgchartA#1:#2,{\cr\ifx,#1,\else $#1$&\sgchartB#2{}\expandafter\sgchartA\fi}
+\def\sgchartB#1{\hbox to\tcolw{\hss$#1$\hss}\sgchartC}
+\def\sgchartC#1{\ifx,#1,\else
+   \strut\vrule\kern-.4pt\hbox to\tcolw{\hss$#1$\hss}\expandafter\sgchartC\fi}
+\def\sgchartD#1#2,{\ifx\relax#1\else\hbox to\tcolw{\hss$#1#2$\hss}\expandafter\sgchartD\fi}
+\def\sgchartE#1#2,{\ifx\relax#1\else
+    \ifx~#1\sgchartS\tcolw\circ \else\sgchartS\tcolw\bullet\fi \expandafter\sgchartE\fi}
+\def\sgchartR{\leaders\vrule height2.8pt depth-2.4pt\hfil}
+\def\sgchartS#1#2{\hbox to#1{\kern-.2pt\sgchartR \ifx\relax#2\else
+   \kern-.7pt$#2$\kern-.7pt\sgchartR\fi\kern-.2pt}}
+\ecatcode
+%++++++++++++++++++++++++++++++++++++++++
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\courseNumber: \courseName}}
+    \normalsize\vspace{0.1in}\\
+    \vspace{0.1in}\Large{\text{\psetName}} \\
+    \vspace{0.1in}\large{\text{\professor}}
+    \vspace{3in}
+}
+
+\author{\name}
+\date{\dueDate}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+    \pagebreak
+
+    \section{Warm-Up Problems}
+    \begin{enumerate}[(1)]
+        \item \textbf{Briefly summarize the “machine method.”}
+        
+        The ``machine method'' is a method to demonstrate that a set is infinite by building a machine (an algorithm) that takes as input a finite list and names an element of the set that is not in the list. 
+
+        \item \textbf{Use the machine method to show that there are infinitely many odd natural numbers; i.e., infinitely many numbers that don’t have 2 as a factor. Be sure to include an explanation why your machine works as intended.}
+        \begin{proof}
+            Let $S$ be a finite set of odd natural numbers. Let a machine run the function $f: \nats \to \nats$ with the rule $f(n) = n + 2$. Let $x = \max(S)$ and feed it into the machine. We can verify that the output is always odd by observing if the remainder of the output divided by 2 is 0:
+            \[ f(x) \Mod{2} \equiv (x \Mod{2}) + (2 \Mod{2}) \equiv x \Mod{2} \]
+            As $x$ is odd, $x \Mod{2} = 1$. Thus, $f(x) \Mod{2} = 1$. Therefore, the output is odd. Since we add 2 to the input, the output is always greater than the input. As the input is the greatest number in $S$, the output is also greater than all elements in $S$. Therefore, the output is not in $S$. We have shown that no finite list can contain the set of all odd natural numbers, and thus the set of all odd natural numbers is infinite.
+        \end{proof}
+        \item \textbf{State what it means for a natural number to be prime, and what it means for a natural number to be composite.}
+        
+        A prime natural number is a natural number greater than 1 that only has factors of itself and 1. A composite natural number is a natural number greater than 1 that has another factor other than itself and 1.
+        \item \textbf{You receive the following message from a friend:\label{question:friend}
+        \begin{quote}
+            There are infinitely many prime numbers. Here’s why. We know that every natural number greater than one has a prime factor. There are infinitely many natural numbers greater 1. As the numbers get bigger, their prime factors have to get bigger. Thus, there are infinitely many prime numbers. ---Your friend.
+        \end{quote}
+        How would you explain to your friend the flaw in their reasoning?}
+        \begin{proof}
+            By counterexample. 
+            
+            Hi friend! Your claim can be expressed as the following: 
+            \[ \forall x, \forall y \in \nats(P(x,y) \to Q(x,y)) \]
+            Where $P(x,y)$ is the statement that $x > y$ and $Q(x,y)$ is the statement that $x$ has a prime factor greater than $y$. We construct a counterexample by choosing $x = 8$ and $y = 2$. We can verify that $P(8,2)$ is true, but $Q(8,2)$ is false. As $\exists x, \exists y \in \nats \mid (P(x,y) \land \neg Q(x,y))$, the original statement is false.
+        \end{proof}
+            The issue with your claim is saying ``as the numbers get bigger, their prime factors have to get bigger.'' This statement implies a strictly increasing relation between the natural numbers and their prime factors. However, as shown, this is not the case. Hope this helps!
+
+        --- \name
+    \end{enumerate}
+    \section{Step Toward a Proof That There Are Infinitely Many Primes}
+    \begin{enumerate}[(1)]
+        \setcounter{enumi}{4}
+        \item \textbf{Pick any natural number other than 1, call it $n$. Next, choose a natural number that has $n$ as a factor. Let’s call this number $k$. Does the number $k + 1$ have $n$ as a factor? Repeat a few times with different values of n and k, and record the results.}\label{question:list n and k and k + 1}
+        \begin{figure}[H]
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                $n$ & $k$ & $k + 1$ & $k + 1$ has $n$ as a factor? \\
+                \hline
+                2 & 2 & 3 & \textbf{F} \\
+                3 & 3 & 4 & \textbf{F} \\
+                5 & 5 & 6 & \textbf{F} \\
+                7 & 7 & 8 & \textbf{F} \\
+                11 & 11 & 12 & \textbf{F} \\
+                13 & 13 & 14 & \textbf{F} \\
+                17 & 17 & 18 & \textbf{F} \\
+                \hline
+            \end{tabular}
+        \end{figure}        
+        \item \textbf{Explain why, if n is a natural number greater than 1, and k is a natural number that has $n$ as a factor, the number $k + 1$ cannot also have n as a factor.}\label{question:k + 1 cannot have n as a factor}
+        \begin{proof}
+            By contradiction. 
+            
+            To prove $\forall k(P(k) \to \neg P(k+1))$, where $P(k)$ is the statement that $k$ has $n$ as a factor, assume the negation: $\exists k (P(k) \land P(k+1))$. This means that there exists a natural number $k$ such that $k$ has $n$ as a factor and $k+1$ also has $n$ as a factor. This means $k+1$ is divisible by $n$: 
+            \[ (k+1) \Mod{n} \equiv 0 \]
+            $(k+1) \Mod{n}$ can be rewritten as:
+            \[ (k \Mod{n}) + (1 \Mod{n}) \equiv 0 \]
+            From our assumption, $k$ is divisible by $n$, and thus $k \Mod{n} \equiv 0$:
+            \[ 1 \Mod{n} \equiv 0 \]
+            For this statement to be true, $n$ must equal 1. However, from \hyperref[question:list n and k and k + 1]{Question 5}, we define $n$ as: $n \in \nats \land n > 1$. Thus, we arrive at a contradiction. $\smashtimes$ 
+            
+            Therefore, $\forall k(P(k) \to \neg P(k+1))$, meaning if $k$ has $n$ as a factor, $k+1$ cannot have $n$ as a factor.
+        \end{proof}
+        \item \textbf{If you’re given a list of finitely many prime numbers, what is a way to produce a single number $k$ that has each of the primes on the list as a factor? (It might help to try an example with a concrete list of primes first, say the list 2, 7, 29, 103.)} \label{question:produce k}
+        
+        Multiply all the primes together. For example, if the list is 2, 7, 29, 103, then $k = 2 \cdot 7 \cdot 29 \cdot 103=41818$. This works because $k$ is divisible by each of the primes in the list.
+        \item \textbf{Explain a method that, given any list of finitely many prime numbers, produces a natural number that does not have any of the primes on the list as a factor. (Put together the ideas from the preceding two exercises.)}\label{question:full proof}
+        
+        From \hyperref[question:k + 1 cannot have n as a factor]{Question 6}, we know that if $k$ has $n$ as a factor, then $k+1$ does not have $n$ as a factor. From this, we can conclude that $k+1$ does not contain any of the same factors as $k$ except 1. From \hyperref[question:produce k]{Question 7}, we know that if we multiply all the primes together, we get a number that has all the primes as factors. Thus, if we add 1 to the product of all the primes, we get a number that does not have any of the primes as factors.
+
+        \item \textbf{In the method you described in the previous problem, is it always the case that the number produced is itself a prime number? If so, explain why. If not, provide a counterexample. If, for some inputs, the output number is not prime, what can you say about the prime factors of the output number?}
+        \begin{proof} By counterexample. 
+            
+            Let $k$ be the product of the primes 11, 13, and 17. Then $k = 11 \cdot 13 \cdot 17 = 2431$. $k+1$ is 2432, which is not prime, as $2432 \Mod{2} \equiv 0$. Thus, adding 1 to the product of primes does not always produce a prime number.  
+        \end{proof}
+        We can say that the prime factors of the output number are different from the prime factors of $k$ from \hyperref[question:produce k]{Question 7}.
+    \end{enumerate}
+    \section{Proof That There Are Infinitely Many Primes}
+    \begin{enumerate}[(1)]
+        \setcounter{enumi}{9}
+        \item \textbf{Put together the ideas from the previous exercises to show that there are infinitely many prime numbers. That is, describe a machine that takes as its input a finite list of prime numbers, and outputs a prime number that is not on the input list. (It might help to refer to the fact that every natural number larger than 1 has a prime factor.)}\label{question:prove infinitely many primes}
+        \begin{proof}
+            Let $S$ be a finite set of primes. Let a machine run an algorithm that creates a new set, $S'$, that is the set of all primes from 2 to the greatest element of $S$. Let $k$ be the product of all the primes in $S'$. From \hyperref[question:produce k]{Question 7}, we know that $k$ has all the primes in $S'$ as factors. From \hyperref[question:k + 1 cannot have n as a factor]{Question 6}, we know that $k+1$ does not have any of the primes in $S'$ as factors. Thus, $k+1$ contains a prime factor that is not in $S'$. As $S' \supseteq S$, this factor is also not in $S$. We have shown that no finite list can contain all the primes, and thus there are infinitely many primes.
+        \end{proof}
+    \end{enumerate}
+    \section{Reflection}
+        \textbf{Identify at least one wrong or failed idea that turned out to be helpful or enlightening in some way. For instance, that idea might have helped you solve a problem, or it may have been the start of a conversation that improved your understanding more generally. You can list one of your own ideas, or an idea that originated with a classmate. (Please give your classmate credit!)}
+
+        For \hyperref[question:full proof]{Question 10}, I initially thought that, if we took a set of all primes up to a certain point and multiplied them and then added 1, it would be guaranteed be prime. However, after submitting, I realized that there was a counter-example to my claim:
+        \[  2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 + 1=30031 \]
+        which is not prime, as it is divisible by 59. However, I realized this would mean that the factors would contain a prime that was not in the original set. This led me to my final proof, that $k+1$ contains a prime not in the set of primes from 2 to the greatest element of $S$.
+\end{document}
