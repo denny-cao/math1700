@@ -1,0 +1,231 @@
+%++++++++++++++++++++++++++++++++++++++++
+\documentclass[article, 12pt]{article}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tabu} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\usepackage{tikz}
+\usepackage{caption} 
+\usepackage{fancyhdr}
+\usepackage{amssymb} % symbols like /therefore
+\usepackage{amsthm} % proofs
+\usepackage{enumerate} % lettered lists
+\usepackage{mathtools} % macros
+\usepackage{fdsymbol} % card suit symbols
+\usetikzlibrary{scopes}
+% \usepackage{xcolor} \pagecolor[rgb]{0.12549019607,0.1294117647,0.13725490196} \color[rgb]{0.82352941176,0.76862745098,0.62745098039} % dark theme
+\theoremstyle{definition}
+\newtheorem{example}{Example}[subsubsection]
+\newtheorem*{remark}{Remark}
+\newtheorem{theorem}{Theorem}[subsubsection]
+\newtheorem{definition}{Definition}[subsubsection]
+\newtheorem{corollary}{Corollary}[subsubsection]
+\hypersetup{
+	colorlinks=false,      % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{tikz,pgfplots}
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{arrows.meta}
+\tikzset{>=latex} % for LaTeX arrow head
+\contourlength{1.2pt}
+
+\colorlet{xcol}{blue!70!black}
+\colorlet{vcol}{green!60!black}
+\colorlet{myred}{red!70!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{mygreen}{green!70!black}
+\colorlet{mydarkred}{myred!70!black}
+\colorlet{mydarkblue}{myblue!60!black}
+\colorlet{mydarkgreen}{mygreen!60!black}
+\colorlet{acol}{red!50!blue!80!black!80}
+\tikzstyle{CM}=[red!40!black,fill=red!80!black!80]
+\tikzstyle{xline}=[xcol,thick,smooth]
+\tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                  top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{faded mass}=[dashed,line width=0.1,red!30!black!40,fill=red!40!black!10,rounded corners=1,
+                        top color=red!40!black!10,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+\def\rope#1{ \draw[black,line width=1.4] #1; \draw[rope,line width=1.1] #1; }
+\tikzstyle{force}=[->,myred,very thick,line cap=round]
+\tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
+\tikzstyle{Fproj}=[force,myred!40]
+\tikzstyle{myarr}=[-{Latex[length=3,width=2]},thin]
+\def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+\DeclareMathOperator{\sn}{sn}
+\DeclareMathOperator{\cn}{cn}
+\DeclareMathOperator{\dn}{dn}
+\def\N{80} % number of samples in plots
+
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\usepackage{siunitx} % units
+\usepackage{verbatim} 
+\newcommand{\courseNumber}{MATH 1700}
+\newcommand{\courseName}{Ideas in Mathematics}
+\newcommand{\professor}{Professor Rimmer}
+\newcommand{\psetName}{Worksheet 3: Sets and Functions First Submission}
+\newcommand{\dueDate}{Due: February 1, 2023}
+\newcommand{\name}{Denny Cao}
+\pagestyle{fancy}
+\fancyhf{}% clears all header and footer fields
+\fancyfoot[C]{--~\thepage~--}
+\renewcommand*{\headrulewidth}{0.4pt}
+\renewcommand*{\footrulewidth}{0pt}
+\lhead{\name}
+\chead{\courseNumber: \courseName}
+\rhead{\professor}
+
+
+\fancypagestyle{plain}{%
+  \fancyhf{}% clears all header and footer fields
+  \fancyfoot[C]{--~\thepage~--}%
+  \renewcommand*{\headrulewidth}{0pt}%
+  \renewcommand*{\footrulewidth}{0pt}%
+}
+
+% Shortcuts
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil} % ceil function
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor} % floor function
+
+\DeclarePairedDelimiter\paren{(}{)} % parenthesis
+
+\newcommand{\df}{\displaystyle\frac} % displaystyle fraction
+\newcommand{\qeq}{\overset{?}{=}} % questionable equality
+
+\newcommand{\Mod}[1]{\;\mathrm{mod}\; #1} % modulo operator
+
+% Sets
+\DeclarePairedDelimiter\set{\{}{\}}
+\newcommand{\unite}{\cup}
+\newcommand{\inter}{\cap}
+
+\newcommand{\reals}{\mathbb{R}} % real numbers: textbook is Z^+ and 0
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\rats}{\mathbb{Q}}
+
+\newcommand{\degree}{^\circ}
+
+% Counting
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+\setlength\parindent{0pt}
+
+% Card Symbols
+\newcommand{\clubs}{\clubsuit}
+\newcommand{\diamonds}{\vardiamondsuit}
+\newcommand{\hearts}{\varheartsuit}
+\newcommand{\spades}{\spadesuit}
+
+%++++++++++++++++++++++++++++++++++++++++
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\courseNumber: \courseName}}
+    \normalsize\vspace{0.1in}\\
+    \vspace{0.1in}\Large{\text{\psetName}} \\
+    \vspace{0.1in}\large{\text{\professor}}
+    \vspace{3in}
+}
+
+\author{\name}
+\date{\dueDate}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+    \pagebreak
+
+    \section{Function Review}
+    \begin{enumerate}[(1)]
+        \item \textbf{Consider the relationships below. None of them are functions. For each example, explain why.}
+        \begin{enumerate}[(a)]
+            \item $f: \set*{a, b, c} \to \nats$ 
+            \begin{figure}[H]
+                \centering
+                \begin{tabular}{c|c}
+                    $x$ & $f(x)$ \\
+                    \hline
+                    a & 12 \\
+                    b & 7 \\
+                    b & 4 \\
+                    c & 128
+                \end{tabular}
+            \end{figure}
+            \begin{proof}
+                The definition of a function is that all elements in the domain have a unique image in the codomain. In this case, $b$ has two images, $7$ and $4$, and is therefore $f$ is not a function.
+            \end{proof}
+            \item $g: \nats \to \nats , g(n) = n-4$
+            \begin{proof}
+                The definition of a function is that all elements in the domain have a unique image in the codomain. In this case, the preimages 1,2,3, and 4 map to numbers not in the codomain of $\nats$. Therefore, for these values, there is no unique image for all values in the domain, meaning $g$ is not a function.
+            \end{proof}
+            \item $h: \ints \to \rats, h(z) = \df{1}{z}$
+            \begin{proof}
+                The definition of a function is that all elements in the domain have a unique image in the codomain. In this case, the preimage of 0 maps to an undefined value, and therefore there is no unique image for all values in the domain, meaning $h$ is not a function.
+            \end{proof}
+        \end{enumerate}
+        \item \textbf{Consider the function from $\nats$ to $\ints$ that multiplies every number in the source by 2. Is this function injective? Is it surjective?}
+        \begin{proof}
+            \textbf{The function is injective}. The definition of injective for a function $f$ with domain $A$ is \[ \forall x \forall y((x,y \in A \land f(x) = f(y)) \to x = y) \] In this case, $f(x) = 2x$ and $f(y) = 2y$, so if $f(x) = f(y)$, then $2x = 2y \to x = y$. Therefore, the function is injective.
+        \end{proof}
+        \begin{proof}
+            \textbf{The function is not surjective}. The definition of surjective for a function $f$ with domain $A$ is \[ \forall y \exists x(x \in A \land f(x) = y) \] In this case, $f(x) = 2x$. This means that all values in the domain map to an even number. Since the codomain is $\ints$, there are infinitely many integers that are not even, there are infinitely many values in the codomain that are not images of the domain. Therefore, the function is not surjective.
+        \end{proof}
+        \item \textbf{Consider the function from $\nats$ to $\nats$ that adds one to every number in the source. Is this function injective? Surjective?}
+        \begin{proof}
+            \textbf{The function is injective}. The definition of injective for a function $f$ with domain $A$ is \[ \forall x \forall y((x,y \in A \land f(x) = f(y)) \to x = y) \] In this case, $f(x) = x+1$ and $f(y) = y+1$, so if $f(x) = f(y)$, then $x+1 = y+1 \to x = y$. Therefore, the function is injective.
+        \end{proof}
+        \begin{proof}
+            \textbf{The function is not surjective}. The definition of surjective for a function $f$ with domain $A$ is \[ \forall y \exists x(x \in A \land f(x) = y) \] In this case, $f(x) = x+1$. To obtain an image of 1, the preimage must be 0. However, 0 is not in the domain of the function, $\nats$, meaning $\exists y \forall x (x \in A \land f(x) \neq y)$. Therefore, the function is not surjective.
+        \end{proof}
+        \item \textbf{Consider the function from $\ints$ to $\ints$ that adds one to every number in the source. Is this function injective? Surjective?}
+        \begin{proof}
+            \textbf{The function is injective}. The definition of injective for a function $f$ with domain $A$ is \[ \forall x \forall y((x,y \in A \land f(x) = f(y)) \to x = y) \] In this case, $f(x) = x+1$ and $f(y) = y+1$, so if $f(x) = f(y)$, then $x+1 = y+1 \to x = y$. Therefore, the function is injective.
+        \end{proof}
+        \begin{proof}
+            \textbf{The function is surjective}. The definition of surjective for a function $f$ with domain $A$ is \[ \forall y \exists x(x \in A \land f(x) = y) \] In this case, $f(x) = x+1$. For all elements in the codomain, there exists a preimage in the domain, $x = y-1$. Therefore, the function is surjective.
+        \end{proof}
+        \item \textbf{Consider the function from $\ints$ to $\reals$ that sends ever integer to itself. Is this function injective? Surjective?}
+        \begin{proof}
+            \textbf{The function is injective}. The definition of injective for a function $f$ with domain $A$ is \[ \forall x \forall y((x,y \in A \land f(x) = f(y)) \to x = y) \] In this case, $x \in \ints \to f(x) = x$. Let $a,b \in \ints$. As $f(a) = a$ and $f(b) = b$, $f(a) = f(b) \to a = b$. Therefore, the function is injective.
+        \end{proof}
+        \begin{proof}
+            \textbf{The function is not surjective}. The definition of surjective for a function $f$ with domain $A$ is \[ \forall y \exists x(x \in A \land f(x) = y) \] As the domain is $\ints$, the domain maps solely to integers in the codomain. However, the codomain is $\reals$, which contains infinitely many real numbers that are not integers. As $\exists y \forall x (x \in A \land f(x) \neq y)$, the function is not surjective.
+        \end{proof}
+        \item \textbf{Consider the function from $\nats$ to $\nats$ that subtracts one from every number other than 1, and sends 1 to 1. Is this function injective? Surjective?}
+        \begin{proof}
+            \textbf{The function is injective}. The definition of injective for a function $f$ with domain $A$ is \[ \forall x \forall y((x,y \in A \land f(x) = f(y)) \to x = y) \]
+            We can represent the function as a piecewise function:
+            \[ f: \nats \to \nats, f(x) = \begin{cases} 1 & x = 1 \\ x-1 & x \neq 1 \end{cases} \]
+            The union of the domains of the two pieces is the domain of the function, $\nats$. The intersection of the domains of the two pieces is the empty set, so the function is injective.
+        \end{proof}
+        \begin{proof}
+            \textbf{The function is surjective}. The definition of surjective for a function $f$ with domain $A$ is
+            \[ \forall y \exists x (x \in A \land f(x) = y) \]
+            When $x \neq 1$, $f(x) = x - 1$. For all values $y$ in the codomain, there is a value $x$ in the domain, $y+1$, that maps to it. When $x=1$, $y=1$. Despite the image 1 having 2 preimages, 1, and 2, the definition of surjective is still satisfied.
+        \end{proof}
+        \item \begin{enumerate}[(a)]
+            \item \textbf{Write down a function with source $\nats$ and target $\{\spades, \hearts, \diamonds, \clubs\}$ which is not surjective.}
+            \[ f: \nats \to \set*{\spades, \hearts, \diamonds, \clubs}, f(x) = \spades \]
+            \item \textbf{Are there any injective functions from $\nats$ to $\{\spades, \hearts, \diamonds, \clubs\}$? Give an example or very briefly explain why not.}
+            \begin{proof}
+                \textbf{There are no injective functions from $\nats$ to $\set*{\spades, \hearts, \diamonds, \clubs}$}. We prove this by the pigeonhole principle. Let the values in the codomain be holes, and let the values in the domain be pigeons. There are 4 holes. With 4 pigeons, we can place each pigeon in each hole. With 5 pigeons, there must be a hole that contains at least 2---with 5 pigeons, the function is not injective. As the cardinality of $\nats > 5$, there will be more pigeons than holes, meaning at least 1 hole contains more than 1 pigeons. Thus, there is no possible injective function.
+            \end{proof}
+            \item \textbf{Are there any injective functions from $\{\spades, \hearts, \diamonds, \clubs\}$ to $\nats$ which are not surjective? Give an example or very briefly explain why not.}
+            \end{enumerate}
+    \end{enumerate}
+\end{document}
