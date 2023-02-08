@@ -16,7 +16,7 @@
 \usepackage{enumerate} % lettered lists
 \usepackage{mathtools} % macros
 \usetikzlibrary{scopes}
-% \usepackage{xcolor} \pagecolor[rgb]{0.12549019607,0.1294117647,0.13725490196} \color[rgb]{0.82352941176,0.76862745098,0.62745098039} % dark theme
+\usepackage{xcolor} \pagecolor[rgb]{0.12549019607,0.1294117647,0.13725490196} \color[rgb]{0.82352941176,0.76862745098,0.62745098039} % dark theme
 \theoremstyle{definition}
 \newtheorem{example}{Example}[subsection]
 \newtheorem*{remark}{Remark}
@@ -111,16 +111,31 @@
 \newcommand{\unite}{\cup}
 \newcommand{\inter}{\cap}
 
-\newcommand{\reals}{\mathbb{R}} % real numbers: textbook is Z^+ and 0
+
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\realspos}{\mathbb{R}^+} % real numbers: textbook is Z^+
 \newcommand{\ints}{\mathbb{Z}}
-\newcommand{\nats}{\mathbb{N}}
+\newcommand{\posints}{\mathbb{Z}^+}
+\newcommand{\nats}{\mathbb{N}} % textbook is Z^+ and 0
 \newcommand{\rats}{\mathbb{Q}}
+\newcommand{\comps}{\mathbb{C}}
+\newcommand{\irrs}{\mathbb{I}} % Irrational Numbers; Rimmer uses this
+\newcommand{\whole}{\mathbb{W}} % Whole Numbers; Rimmer uses this
+
+\newcommand{\powset}{\mathcal{P}} % power set
 
 \newcommand{\degree}{^\circ}
 
+\newcommand{\comp}{\circ} % composition
 % Counting
 \newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
 \newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+% Shortcuts
+\newcommand{\xor}{\oplus} % exclusive or
+\newcommand{\true}{\textbf{T}} % true
+\newcommand{\false}{\textbf{F}} % false
+\newcommand{\lra}{\leftrightarrow} % iff
 
 \setlength\parindent{0pt}
 
@@ -263,7 +278,335 @@
         A natural number is a \textbf{composite number} if it is greater than 1 and has at least one factor other than 1 and itself.
     \end{definition}
     \begin{itemize}
-        \item From \ref{ex:infinite}, we know that the set of even integers is infinite. Thus, it follows that there are infinitely many composite numbers.
+        \item From \hyperref[ex:infinite]{the Exercise}, we know that the set of even integers is infinite. Thus, it follows that there are infinitely many composite numbers.
         \item The number 1 is \textbf{neither prime nor composite}.
     \end{itemize}
+    \section{Sets}
+    \subsection{Introduction}
+    \begin{definition}
+        A \textbf{set} is an unordered collection of distinct objects called \textbf{elements} or \textbf{members} of the set. A set is said to \textbf{contain} its elements. We write $a \in A$ to denote that $a$ is an element of the set $A$. The notation $a \notin A$ denotes that $a$ is not an element of the set $A$.   
+    \end{definition}
+
+    Sets of types of numbers:
+    \begin{itemize}
+        \item Natural Numbers: $\nats = \{0, 1, 2, 3, \dots\} = \{ \posints \unite 0\}$
+        \item Integers: $\ints = \{\dots, -2, -1, 0, 1, 2, \dots\}$
+        \item Positive Integers: $\ints^+ = \{1, 2, 3, \dots\}$
+        \item Rational Numbers: $\rats = \set*{\df{a}{b} \mid a, b \in \ints \text{ and } b \neq 0}$
+        \item Real Numbers: $\reals$
+        \item Positive Real Numbers: $\reals^+$
+        \item Complex Numbers: $\comps$
+    \end{itemize}
+
+    \begin{definition}
+        \textbf{Equality of Sets}:
+        \begin{equation*}
+            A=B \lra \forall x (x \in A \lra x \in B) \lra A \subseteq B \land B \subseteq A   
+        \end{equation*}
+    \end{definition}
+
+    \begin{definition}
+        \textbf{Empty Set}: $\emptyset = \set*{}$
+    \end{definition}
+    \stepcounter{subsection}
+    \subsection{Subsets}
+    \begin{definition}
+        \textbf{Subset}:
+        \begin{equation*}
+            A \subseteq B \lra \forall x (x \in A \lra x \in B) \lra B \supseteq A
+        \end{equation*}
+        To show that $A \not\subseteq B$, show $\exists x (x \in A \land x \not\in B)$.
+    \end{definition}
+
+    \begin{theorem}
+        For every set $S$, $\emptyset \subseteq S$ and $S \subseteq S$.
+    \end{theorem}
+    \subsection{Size of a Set}
+    \begin{definition}
+        Let $S$ be a set. If there are exactly $n$ distinct elements in $S$, where $n$ is a nonnegative integer, we say that $S$ is a \textbf{finite set} and that $n$ is the \textbf{cardinality} of $S$, denoted by $|S|$.
+        \begin{itemize}
+            \item Note: Theorem 2.1.3.1!
+        \end{itemize}
+    \end{definition}
+    \subsection{Power Sets}
+    \begin{definition}
+        Let $S$ be a set. The \textbf{power set} of $S$, denoted by $\powset(S)$, is the set of all subsets of $S$.
+    \end{definition}
+    \begin{theorem} Cardinality of a power set
+        \begin{equation*}
+            |\powset(S)| = 2^{|S|}
+        \end{equation*}
+    \end{theorem}
+    \subsection{Cartesian Products}
+    \begin{definition}
+        Let $A$ and $B$ be sets. The \textbf{Cartesian product} of $A$ and $B$, denoted by $A \times B$, is the set of all ordered pairs $(a,b)$ where $a \in A$ and $b \in B$. Hence:
+        \begin{equation*}
+            A \times B = \{(a,b) \mid a \in A \land b \in B\}    
+        \end{equation*}
+    \end{definition}
+    \subsection{Set Operations}
+    \subsection{Introduction}
+    \begin{definition}
+        Let $A$ and $B$ be sets. The \textbf{union} of the sets $A$ and $B$, denoted $A \unite B$, is the set that contains those elements that are in either $A$ or $B$ or both. Hence:
+        \begin{equation*}
+            A \unite B = \{x \mid x \in A \lor x \in B\}
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        Let $A$ and $B$ be sets. The \textbf{intersection} of the sets $A$ and $B$, denoted $A \inter B$, is the set that contains those elements in both $A$ and $B$. Hence:
+        \begin{equation*}
+            A \inter B = \{x \mid x \in A \land x \in B\}
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        Two sets are called \textbf{disjoint} if their intersection is the emptyset.
+    \end{definition}
+    \begin{definition}
+        Let $A$ and $B$ be sets. The \textbf{difference} of the sets $A$ and $B$, denoted $A - B$, is the set that contains those elements in $A$ but not in $B$. It is also called the \textbf{complement of $B$ with respect to $A$}. Hence:
+        \begin{equation*}
+            A - B = \{x \mid x \in A \land x \not\in B\}
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        Let $U$ be the universal set. The \textbf{complement} of a set $A$, denoted $\overline{A}$, is the set $U - A$. Hence:
+        \begin{equation*}
+            \overline{A} = \{x \mid x \in U \land x \not\in A\}
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        Let $A$ and $B$ be sets. The \textbf{symmetric difference} of $A$ and $B$ is the set of elements that are in either $A$ or $B$ but not in both. It is denoted by $A \xor B$. Hence:
+        \begin{equation*}
+            A \xor B = (A \unite B) - (A \inter B)
+        \end{equation*} 
+    \end{definition}
+    \subsection{Set Identities}
+    \begin{figure}[H]
+        \centering
+        {\renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{|l|c|}
+            \hline
+            Identity & Name \\
+            \hline
+            $A \inter U = A$ & Identity Laws \\
+            $A \unite \emptyset = A$ & \\
+            \hline
+            $A \unite U = U$ & Domination Laws \\
+            $A \inter \emptyset = \emptyset$ & \\
+            \hline
+            $A \unite A = A$ & Idempotent Laws \\
+            $A \inter A = A$ & \\
+            \hline
+            $\overline{(\overline{A})} = A$ & Complementation Law \\
+            \hline
+            $A \unite B = B \unite A$ & Commutative Laws \\
+            $A \inter B = B \inter A$ & \\
+            \hline
+            $A \unite (B \unite C) = (A \unite B) \unite C$ & Associative Laws \\
+            $A \inter (B \inter C) = (A \inter B) \inter C$ & \\
+            \hline
+            $A \unite (B \inter C) = (A \unite B) \inter (A \unite C)$ & Distributive Laws \\
+            $A \inter (B \unite C) = (A \inter B) \unite (A \inter C)$ & \\
+            \hline
+            $\overline{A \inter B} = \overline{A} \unite \overline{B}$ & De Morgan's Laws \\
+            $\overline{A \unite B} = \overline{A} \inter \overline{B}$ & \\
+            \hline
+            $A \unite (A \inter B) = A$ & Absorption Laws \\
+            $A \inter (A \unite B) = A$ & \\
+            \hline
+            $A \unite \overline{A} = U$ & Complement Laws \\
+            $A \inter \overline{A} = \emptyset$ & \\
+            \hline
+        \end{tabular}}
+        \caption{Set Identities}
+    \end{figure}
+    There are 3 ways to prove that two sets are equal:
+    \begin{enumerate}
+        \item Showing that they are subsets of each other. (Definition 2.2)
+        \item Membership tables.
+        \item Set identities.
+    \end{enumerate}
+    A \textbf{membership table} considers each combination of the atomic sets (the original sets used to produce the sets on each side) that an element can belong to and verify that elements in the same combinations of sets belong to both the sets in the identity. Use a 1 to indicate that an element belongs to a set and a 0 to indicate that it does not. For example, consider the following identity:
+    \begin{equation*}
+        A \unite (A \inter B) = A
+    \end{equation*}
+    We can construct a membership table for this identity as follows:
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $A$ & $B$ & $A \unite (A \inter B)$ \\
+            \hline
+            1 & 1 & 1 \\
+            1 & 0 & 1 \\
+            0 & 1 & 0 \\
+            0 & 0 & 0 \\
+            \hline
+        \end{tabular}
+    \end{center}
+    Since the columns are the same, we can conclude that the sets are equal.
+    \subsection{Generalized Unions and Intersections}
+    \begin{definition}
+        The \textbf{union} of a collection of sets is the set that contains those elements that are members of at least one set in the collection. It is denoted by:
+        \begin{equation*}
+            A_1 \unite A_2 \unite \cdots A_n = \bigcup_{i=1}^{n} A_i
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        The \textbf{intersection} of a collection of sets is the set that contains those elements that are members of all sets in the collection. It is denoted by:
+        \begin{equation*}
+            A_1 \inter A_2 \inter \cdots A_n = \bigcap_{i=1}^{n} A_i
+        \end{equation*}
+    \end{definition}
+    \section{Functions}
+    \subsection{Introduction}
+    \begin{definition}
+        Let $A$ and $B$ be nonempty sets. A \textbf{function} $f$ from $A$ to $B$ is an assignment of exactly one element of $B$ to each element of $A$. We write $f(a) = b$ if $b$ is the unique element of $B$ assigned by the function $f$ to the element $a$ of $A$. If $f$ is a function from $A$ to $B$, we write $f: A \to B$.
+        \begin{itemize}
+            \item Functions are sometimes also called \textbf{mappings} or \textbf{transformations}
+        \end{itemize}
+    \end{definition}
+    \begin{definition}
+        Let $f: A \to B$ be a function. $A$ is the \textbf{domain} of $f$ and $B$ is the \textbf{codomain} of $f$. If $f(a) = b$, we say that $b$ is the \textbf{image} of $a$ and $a$ is the \textbf{preimage} of $b$. The \textbf{range}, or \textbf{image} of $f$ is the set of all images of elements of $A$. Also, if $f$ is a function from $A$ to $B$, we say that $f$ \textbf{maps} $A$ to $B$.
+        \begin{itemize}
+            \item Codomain is set of possible values of the function and range is the set of all elements of the codomain that are achieved as the value of $f$ for at least one element of the domain.
+            \item Two functions are \textbf{equal} when they have the same domain, same codomain, and map each each element of their common domain to the same element in their common codomain.
+        \end{itemize}
+    \end{definition}
+    \begin{definition}
+        Let $f_1$ and $f_2$ be functions from $A$ to $B$. Then $f_1 + f_2$ and $f_1f_2$ are also functions from $A$ to $B$ defined $\forall x \in A$ by:
+        \begin{align*}
+            (f_1 + f_2)(x) &= f_1(x) + f_2(x) \\
+               (f_1f_2)(x) &= f_1(x)f_2(x)
+        \end{align*}
+    \end{definition}
+    \begin{definition}
+        Let $f$ be a function from $A$ to $B$ and let $S \subseteq A$. The \textbf{image} of $S$ under the function $f$ is the subset of $B$ that consists of the images of the elements of $S$. We denote the image of $S$ by $f(S)$, so:
+        \begin{equation*}
+            f(S) = \set*{t \mid \exists s \in S (t = f(s))} = \set*{f(s) \mid s \in S}
+        \end{equation*}
+    \end{definition}
+    \subsection{One-to-One and Onto Functions}
+    \begin{definition}
+        A function $f$ with domain $A$ is \textbf{one-to-one} if and only if: 
+        \begin{equation*}
+            \forall a \forall b (a,b \in A \land (f(a) = f(b) \to a = b))
+        \end{equation*}
+        \begin{itemize}
+            \item A function $f$ is one-to-one if and only if $f(a) \neq f(b)$ whenever $a \neq b$. This is obtained by taking the contrapositve of the implication in the definition.
+        \end{itemize}
+    \end{definition}
+    \begin{definition}
+        A function $f$ whose domain $A$ and codomain $B$ are subsets of the set of real numbers is called \textbf{increasing} if $f(x) \leq f(y)$ whenever $x < y$ and $x,y \in A$. Hence:
+        \begin{equation*}
+            \forall x \forall y (x,y \in A \land x < y \to f(x) \leq f(y))
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        A function $f$ whose domain $A$ and codomain $B$ are subsets of the set of real numbers is called \textbf{strictly increasing} if $f(x) < f(y)$ whenever $x < y$ and $x,y \in A$. Hence:
+        \begin{equation*}
+            \forall x \forall y (x,y \in A \land x < y \to f(x) < f(y))
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        A function $f$ whose domain $A$ and codomain $B$ are subsets of the set of real numbers is called \textbf{decreasing} if $f(x) \geq f(y)$ whenever $x < y$ and $x,y \in A$. Hence:
+        \begin{equation*}
+            \forall x \forall y (x,y \in A \land x < y \to f(x) \geq f(y))
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        A function $f$ whose domain $A$ and codomain $B$ are subsets of the set of real numbers is called \textbf{strictly decreasing} if $f(x) > f(y)$ whenever $x < y$ and $x,y \in A$. Hence:
+        \begin{equation*}
+            \forall x \forall y (x,y \in A \land x < y \to f(x) > f(y))
+        \end{equation*}
+    \end{definition}
+    \begin{definition}
+        A function $f$ from $A$ to $B$ is \textbf{onto}, or a \textbf{surjection}, if and only if for every element $y \in B$ there exists an element $x \in A$ such that $f(x) = y$. Hence:
+        \begin{equation*}
+            \forall y \exists x (f(x) = y)
+        \end{equation*}
+        where the domain for $x$ is $A$ and the domain of $y$ is $B$.
+        \begin{itemize}
+            \item $f$ is \textbf{surjective} if it is onto.
+        \end{itemize}
+    \end{definition}
+    \begin{definition}
+        The function $f$ is a \textbf{one-to-one correspondence} if it is both one-to-one and onto. 
+        \begin{itemize}
+            \item Such a function is \textbf{bijective}
+        \end{itemize}
+        \label{def:one-to-one-correspondence}
+    \end{definition}
+    \begin{figure}[H]
+        \centering
+        {\renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{|l p{25em}|}
+            \hline
+            \multicolumn{2}{|l|}{Suppose that $f: A \to B$.} \\
+            \hline
+            Show $f$ is injective: & Show that if $f(x) = f(y)$ for arbitrary $x,y \in A$, then $x = y$ \\
+            Show $f$ is not injective: & Find particular elements, $x,y \in A$ such that $x \neq y$ and $f(x)=f(y)$. \\
+            Show $f$ is surjective: & Consider an arbitrary element $y \in B$ and find an element $x \in A$ such that $f(x) = y$. \\
+            Show $f$ is not surjective: & Find a particular $y \in B$ such that $f(x) \neq y$ for all $x \in A$. \\
+            Show $f$ is bijective: & Show that $f$ is both injective and surjective. \\
+            \hline
+        \end{tabular}}
+    \end{figure}
+    \subsection{Inverse Functions and Composite Functions}
+    \begin{definition}
+        Let $f$ be a one-to-one correspondence from the set $A$ to the set $B$. The \textbf{inverse function} of $f$ is denoted by $f^{-1}$: Hence: 
+        \begin{equation*}
+            f^{-1}(b) = a \text{ when } f(a) = b
+        \end{equation*}
+        \begin{itemize}
+            \item A one-to-one correspondence $f$ is \textbf{invertible} because we can define an inverse function $f^{-1}$.
+            \item A function is \textbf{invertible} if it is not a one-to-one correspondence, because the inverse of $f$ does not exist.
+        \end{itemize}
+    \end{definition}
+    \begin{definition}
+        Let $g$ be a function from the set $A$ to the set $B$ and let $f$ be a function from the set $B$ to the set $C$. The \textbf{composition} of the functions $f$ and $g$, denoted for all $a \in A$ by $f \comp g$, is the function from $A$ to $C$ defined by:
+        \begin{equation*}
+            (f \comp g)(a) = f(g(a))
+        \end{equation*}
+        \begin{itemize}
+            \item $f \comp g$ assigns the element $a$ of $A$ the element assigned by $f$ to $g(a)$. 
+            \item The domain of $f \comp g$ is the domain of $g$.
+            \item The range of $f \comp g$ is the image of the range of $g$ with respect to $f$.
+            \item The composition $f \comp g$ cannot be defined unless the range of $g$ is a subset of the domain of $f$. 
+            \item \textbf{Not Commutative!} 
+            \begin{equation*}
+                f \comp g \neq g \comp f
+            \end{equation*}
+            \item When composing with inverse function, an identity function is obtained:
+            \begin{equation*}
+                f \comp f^{-1}(a) = f^{-1} \comp f(a) = a
+            \end{equation*}
+        \end{itemize}
+    \end{definition}
+    \stepcounter{subsection}
+    \subsection{Some Important Functions}
+    \begin{definition}
+        The \textbf{floor function} assigns to the real number $x$ the largest integer that is less than or equal to $x$. The value of the floor function at $x$ is denoted by $\floor*{x}$. The \textbf{ceiling function} assigns to the real number $x$ the smllest integer that is greater than or equal to $x$. The value of the ceiling function at $x$ is denoted by $\ceil*{x}$.
+    \end{definition}
+    \begin{figure}[H]
+        \centering
+        {\renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{|c|}
+            \hline
+            \textbf{$n$ is an integer, $x$ is a real number} \\
+            \hline
+            $\floor*{x} = n \lra n \leq x < n+1$ \\
+            $\ceil*{x} = n \lra n-1 < x \leq n$ \\
+            $\floor*{x} = n \lra x-1 < n \leq x$ \\
+            $\ceil*{x} = n \lra x \leq n < x+1$ \\
+            \hline
+            $x-1 < \floor*{x} \leq x \leq \ceil*{x} < x+1$ \\
+            \hline
+            $\floor*{-x} = -\ceil*{x}$ \\
+            $\ceil*{-x} = -\floor*{x}$ \\
+            \hline
+            $\floor*{x+n} = \floor*{x} + n$ \\
+            $\ceil*{x+n} = \ceil*{x} + n$ \\
+            \hline
+        \end{tabular}}
+        \caption{Useful Properties of the Floor and Ceiling Functions}
+    \end{figure}
 \end{document}

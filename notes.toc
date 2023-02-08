@@ -7,3 +7,18 @@
 \contentsline {subsection}{\numberline {2.2}Infinite Sets}{4}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Machine Method}{5}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Prime Numbers}{5}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Sets}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Introduction}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.3}Subsets}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Size of a Set}{6}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Power Sets}{7}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Cartesian Products}{7}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Set Operations}{7}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Introduction}{7}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Set Identities}{8}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Generalized Unions and Intersections}{9}{subsection.3.10}%
+\contentsline {section}{\numberline {4}Functions}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introduction}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}One-to-One and Onto Functions}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Inverse Functions and Composite Functions}{11}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.5}Some Important Functions}{12}{subsection.4.5}%
