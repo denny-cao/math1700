@@ -1,0 +1,302 @@
+%++++++++++++++++++++++++++++++++++++++++
+\documentclass[article, 12pt]{article}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tabu} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\usepackage{tikz}
+\usepackage{caption} 
+\usepackage{fancyhdr}
+\usepackage{amssymb} % symbols like /therefore
+\usepackage{amsthm} % proofs
+\usepackage{enumerate} % lettered lists
+\usepackage{mathtools} % macros
+\usepackage[ all]{xy} % for diagrams
+\usepackage{tkz-graph}
+
+\usetikzlibrary{scopes}
+% \usepackage{xcolor} \pagecolor[rgb]{0.12549019607,0.1294117647,0.13725490196} \color[rgb]{0.82352941176,0.76862745098,0.62745098039} % dark theme
+\theoremstyle{definition}
+\newtheorem{example}{Example}[subsubsection]
+\newtheorem*{remark}{Remark}
+\newtheorem{theorem}{Theorem}[subsubsection]
+\newtheorem{definition}{Definition}[subsubsection]
+\newtheorem{corollary}{Corollary}[subsubsection]
+\hypersetup{
+	colorlinks=false,      % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{tikz,pgfplots}
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{arrows.meta}
+\tikzset{>=latex} % for LaTeX arrow head
+\contourlength{1.2pt}
+
+\colorlet{xcol}{blue!70!black}
+\colorlet{vcol}{green!60!black}
+\colorlet{myred}{red!70!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{mygreen}{green!70!black}
+\colorlet{mydarkred}{myred!70!black}
+\colorlet{mydarkblue}{myblue!60!black}
+\colorlet{mydarkgreen}{mygreen!60!black}
+\colorlet{acol}{red!50!blue!80!black!80}
+\tikzstyle{CM}=[red!40!black,fill=red!80!black!80]
+\tikzstyle{xline}=[xcol,thick,smooth]
+\tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                  top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{faded mass}=[dashed,line width=0.1,red!30!black!40,fill=red!40!black!10,rounded corners=1,
+                        top color=red!40!black!10,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+\def\rope#1{ \draw[black,line width=1.4] #1; \draw[rope,line width=1.1] #1; }
+\tikzstyle{force}=[->,myred,very thick,line cap=round]
+\tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
+\tikzstyle{Fproj}=[force,myred!40]
+\tikzstyle{myarr}=[-{Latex[length=3,width=2]},thin]
+\def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+\DeclareMathOperator{\sn}{sn}
+\DeclareMathOperator{\cn}{cn}
+\DeclareMathOperator{\dn}{dn}
+\def\N{80} % number of samples in plots
+
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\usepackage{siunitx} % units
+\usepackage{verbatim} 
+\newcommand{\courseNumber}{MATH 1700}
+\newcommand{\courseName}{Ideas in Mathematics}
+\newcommand{\professor}{Professor Rimmer}
+\newcommand{\psetName}{Worksheet 5: Uncountable Sets and Cantor's Diagonal Argument}
+\newcommand{\dueDate}{Due: February 15, 2023}
+\newcommand{\name}{Denny Cao}
+\pagestyle{fancy}
+\fancyhf{}% clears all header and footer fields
+\fancyfoot[C]{--~\thepage~--}
+\renewcommand*{\headrulewidth}{0.4pt}
+\renewcommand*{\footrulewidth}{0pt}
+\lhead{\name}
+\chead{\courseNumber: \courseName}
+\rhead{\professor}
+
+% new theorem for questions and answers
+
+\newtheorem{question}{Question}
+
+\newtheorem{answer}{Answer}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}% clears all header and footer fields
+  \fancyfoot[C]{--~\thepage~--}%
+  \renewcommand*{\headrulewidth}{0pt}%
+  \renewcommand*{\footrulewidth}{0pt}%
+}
+
+% Shortcuts
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil} % ceil function
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor} % floor function
+
+\DeclarePairedDelimiter\paren{(}{)} % parenthesis
+
+\newcommand{\df}{\displaystyle\frac} % displaystyle fraction
+\newcommand{\qeq}{\overset{?}{=}} % questionable equality
+
+\newcommand{\Mod}[1]{\;\mathrm{mod}\; #1} % modulo operator
+
+\newcommand{\comp}{\circ} % composition
+
+% Sets
+\DeclarePairedDelimiter\set{\{}{\}}
+\newcommand{\unite}{\cup}
+\newcommand{\inter}{\cap}
+
+\newcommand{\reals}{\mathbb{R}} % real numbers: textbook is Z^+ and 0
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\rats}{\mathbb{Q}}
+
+\newcommand{\degree}{^\circ}
+
+% Counting
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+% Relations
+\newcommand{\rel}{\mathcal{R}} % relation
+
+\setlength\parindent{0pt}
+
+% Directed Graphs
+\usetikzlibrary{arrows}
+\tikzset{vertex/.style = {shape=circle,draw, minimum size=1.5em,
+inner sep=0pt, outer sep=0pt}}
+\tikzset{edge/.style = {->,> = latex'}}
+
+% Contradiction
+\newcommand{\contradiction}{{\hbox{%
+    \setbox0=\hbox{$\mkern-3mu\times\mkern-3mu$}%
+    \setbox1=\hbox to0pt{\hss$\times$\hss}%
+    \copy0\raisebox{0.5\wd0}{\copy1}\raisebox{-0.5\wd0}{\box1}\box0
+}}}
+
+% Sign Charts
+\newdimen\tcolw \tcolw=2.5em % the column width
+\edef\ecatcode{\catcode`&=\the\catcode`&\relax}\catcode`&=4
+\def\sgchart#1#2{\vbox{\offinterlineskip\halign{\hfil##\quad&##\hfil\crcr\sgchartA#2,:,%
+   \omit\sgchartR&\kern.2pt\sgchartS{.5\tcolw}\relax\sgchartE#1,\relax,%
+   \sgchartS{.5\tcolw}\relax\cr
+   \noalign{\kern2pt}&\def~{}\kern.5\tcolw\sgchartD#1,\relax,\cr}}}
+\def\sgchartA#1:#2,{\cr\ifx,#1,\else $#1$&\sgchartB#2{}\expandafter\sgchartA\fi}
+\def\sgchartB#1{\hbox to\tcolw{\hss$#1$\hss}\sgchartC}
+\def\sgchartC#1{\ifx,#1,\else
+   \strut\vrule\kern-.4pt\hbox to\tcolw{\hss$#1$\hss}\expandafter\sgchartC\fi}
+\def\sgchartD#1#2,{\ifx\relax#1\else\hbox to\tcolw{\hss$#1#2$\hss}\expandafter\sgchartD\fi}
+\def\sgchartE#1#2,{\ifx\relax#1\else
+    \ifx~#1\sgchartS\tcolw\circ \else\sgchartS\tcolw\bullet\fi \expandafter\sgchartE\fi}
+\def\sgchartR{\leaders\vrule height2.8pt depth-2.4pt\hfil}
+\def\sgchartS#1#2{\hbox to#1{\kern-.2pt\sgchartR \ifx\relax#2\else
+   \kern-.7pt$#2$\kern-.7pt\sgchartR\fi\kern-.2pt}}
+\ecatcode
+%++++++++++++++++++++++++++++++++++++++++
+% title stuff
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+    \begin{flushleft}
+        \textbf{\@title} \\ \vskip0.2cm
+        \begingroup
+            \fontsize{14pt}{12pt}\selectfont
+            \courseNumber: \courseName 
+            \vskip0.3cm 
+            \professor
+        \endgroup \vskip0.3cm
+        \@date \hfill\rlap{}\bf{\name} \\ \vskip0.1cm
+        \hrulefill
+    \end{flushleft}\egroup 
+}
+\makeatother
+
+\title{\large\bf{\psetName}}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+
+    \section{Warm-Up: X's and O's}
+    
+    % Question 1
+    \begin{question}
+        Consider the following two-player game, which we will call Cantor's Game.
+        \\[12pt]
+        Player 1 begins by writing a sequence of $X$'s and $O$'s in the top row of the grid below.
+        Player 2 then writes either an $X$ or an $O$ in the first box on the bottom. Player 1 then
+        writes a sequence of $X$'s and $O$'s in the second row of the grid. Player 2 writes an $X$ or $O$ in the second bottom box. The players continue until all boxes are filled. Player 1 wins if the sequence on the bottom exactly matches any of the sequences Player 1 has written in
+        the grid. Player 2 wins otherwise.
+        \begin{enumerate}[a)]
+            \item Which player has a winning strategy, and why?
+            \item How does that strategy relate to Cantor's diagonal argument?
+        \end{enumerate}
+    \end{question}
+
+    % Answer 1
+    \begin{answer} \ 
+        \begin{enumerate}[a)] 
+            \item Player 1 has a winning strategy. Player 1 can always write a sequence of X's and O's in the top row that will match the sequence Player 2 writes in the bottom row.
+            \item Player 1's strategy is to write a sequence of X's and O's in the top row that will match the sequence Player 2 writes in the bottom row. This is the same strategy Cantor used to prove that the set of real numbers is uncountable.
+        \end{enumerate}
+    \end{answer}
+
+    % Question 2
+    \begin{question}
+        Prove that the set of all infinite sequences of $X$'s and $O$'s is uncountable.
+    \end{question}
+    
+    % Answer 2
+    \begin{answer}
+        
+        \begin{proof} By contradiction. 
+            \\[12pt]
+            Suppose that the set of all infinite sequences of $X$'s and $O$'s is countable. Then, the subset of all sequences that begin with $X$ would also be countable (The subset of a countable set is countable). Under this assumption, the sequences that begin with $X$ can be listed in some order, $s_1, s_2, s_3, \dots$. We can write the sequences in the form $s_i = X, d_{i1}, d_{i2}, d_{i3}, d_{i4}, \dots$, where $d_{ij} \in \set*{X,O}$:
+            \begin{align*}
+                s_1 &= X,d_{11},d_{12},d_{13},d_{14}\dots \\
+                s_2 &= X,d_{21},d_{22},d_{23},d_{24}\dots \\
+                s_3 &= X,d_{31},d_{32},d_{33},d_{34}\dots \\
+                s_4 &= X,d_{41},d_{42},d_{43},d_{44}\dots \\
+                    &\vdotswithin{=}
+            \end{align*}
+            Then, form a new sequence $s = X, d_1, d_2, d_3, d_4, \dots$, where $d_i$ is determined by the following rule:
+            \begin{equation*}
+                d_i = \begin{cases}
+                    X & \text{if } d_{ii} = O \\
+                    O & \text{if } d_{ii} = X
+                \end{cases}
+            \end{equation*}
+            For instance, if $s_1 = X, X, O, O, X, O, O, X, \dots, s_2 = X, O, O, X, O, O, X, \dots,$ \\ $s_3 = X, O, O, X, X, X, X, \dots, s_4 = X, X, X, X, O, O, X, \dots$, and so on. Then, we have $s = X, d_1, d_2, d_3, d_4, \dots = X, O, X, O, X, \dots$, where $d_1 = O$ because $d_{11} = X$, $d_2 = X$ because $d_{22} = O$, $d_3 = O$ because $d_{33} = X$, and so on. 
+            \\[12pt]
+            Therefore, $s$ is not equal to any of the sequences $s_1, s_2, s_3, \dots$ because $s$ differs from the $i$th sequence in the $i$th position. 
+            \\[12pt]
+            Because there exists a sequence $s$ that is not in the list, the assumption that all the sequences of $X$'s and $O$'s can be listed must be false. $\contradiction$ 
+            \\[12pt]
+            Thus, the set of all infinite sequences of $X$'s and $O$'s with $X$ as the first term cannot be listed, and is therefore uncountable. Any set with an uncountable subset is uncountable. Hence, the set of all infinite sequences of $X$'s and $O$'s is uncountable.
+        \end{proof}
+    \end{answer}
+
+    % Question 3
+    \begin{question}
+        Prove that the set of real numbers between 0 and 0.0001 is uncountable.
+    \end{question}
+
+    % Answer 3
+    \begin{answer}
+    
+    \end{answer}
+
+    \section{Countable and Uncountable Sets}
+    
+    % Question 4
+    \begin{question}
+        The following quote is from John Green's \textit{The Fault in Our Stars.} (Apologies for the spoiler).
+        \begin{quotation}
+            \noindent``There are infinite numbers between 0 and 1. There's .1 and .12 and .112 and an infinite collection of others. Of course, there is a bigger infinite set of numbers between 0 and 2, or between 0 and a million. Some infinities are bigger than other infinities. A writer we used to like taught us that. There are days, many of them, when I resent the size of my unbounded set. I want more numbers than I'm likely to get, and God, I want more numbers for Augustus Waters than he got. But, Gus, my love, I cannot tell you how thankful I am for our little infinity. I wouldn't trade it for the world. You gave me a forever within the numbered days, and I'm grateful.''
+        \end{quotation}
+        What is wrong with the narrator's understanding of cardinality?
+    \end{question}
+
+    % Answer 4
+    \begin{answer}
+        
+    \end{answer}
+
+    % Question 5
+    \begin{question}
+        You have just graduated from Penn and begun your career at Very Large Corporation, Inc.
+        Your new company is so large that its headquarters has (countably) infinitely many floors.
+        On your first day of work, you climb up all the stairs, stopping on each floor to meet either 1, 2, or 3 of your new coworkers who work on that floor.
+
+        \begin{enumerate}[a)]
+            \item Do you greet countably many or uncountably many coworkers? Fully explain your
+            answer.
+            \item As you climb, you make a list of how many coworkers you have greeted on each floor. Is the set of possible lists countable or uncountable? Fully explain your answer.
+        \end{enumerate}
+    \end{question}
+
+    % Answer 5
+    \begin{answer}
+        
+    \end{answer}
+
+    % Question 6
+
+\end{document} 
