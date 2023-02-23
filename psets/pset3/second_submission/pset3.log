@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.19)  1 FEB 2023 23:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.19)  6 FEB 2023 22:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/akkaro/math1700/psets/pset3/first_submission/pset3.tex
-(/home/akkaro/math1700/psets/pset3/first_submission/pset3.tex
+**/home/akkaro/math1700/psets/pset3/second_submission/pset3.tex
+(/home/akkaro/math1700/psets/pset3/second_submission/pset3.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -830,10 +830,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [4]
-Overfull \hbox (11.45967pt too wide) detected at line 260
-[]
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -849,23 +845,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6] (./pset3.aux)
+[6]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[7] (./pset3.aux)
 Package rerunfilecheck Info: File `pset3.out' has not changed.
 (rerunfilecheck)             Checksum: D7EB6E1D02997A24716FBE8D387D4D3A;456.
  ) 
 Here is how much of TeX's memory you used:
- 38741 strings out of 475071
- 915327 string characters out of 5778915
- 1347217 words of memory out of 5000000
- 59540 multiletter control sequences out of 15000+600000
+ 38743 strings out of 475071
+ 915341 string characters out of 5778915
+ 1346217 words of memory out of 5000000
+ 59541 multiletter control sequences out of 15000+600000
  479653 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,89p,800b,1174s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,89p,801b,1174s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/arev/arevoms.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on pset3.pdf (6 pages, 143664 bytes).
+Output written on pset3.pdf (7 pages, 146641 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
+ 147 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,386 @@
+%++++++++++++++++++++++++++++++++++++++++
+\documentclass[article, 12pt]{article}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tabu} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinzery
+\usepackage[margin=1in]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\usepackage{tikz}
+\usepackage{caption} 
+\usepackage{fancyhdr}
+\usepackage{amssymb} % symbols like /therefore
+\usepackage{amsthm} % proofs
+\usepackage{enumerate} % lettered lists
+\usepackage{mathtools} % macros
+\usepackage[ all]{xy} % for diagrams
+\usepackage[inline]{enumitem}
+\usepackage{tkz-graph}
+
+\usetikzlibrary{scopes}
+% \usepackage{xcolor} \pagecolor[rgb]{0.12549019607,0.1294117647,0.13725490196} \color[rgb]{0.82352941176,0.76862745098,0.62745098039} % dark theme
+\theoremstyle{definition}
+\newtheorem{example}{Example}[subsubsection]
+\newtheorem*{remark}{Remark}
+\newtheorem{theorem}{Theorem}[subsubsection]
+\newtheorem{definition}{Definition}[subsubsection]
+\newtheorem{corollary}{Corollary}[subsubsection]
+\hypersetup{
+	colorlinks=false,      % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{tikz,pgfplots}
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{arrows.meta}
+\tikzset{>=latex} % for LaTeX arrow head
+\contourlength{1.2pt}
+
+\colorlet{xcol}{blue!70!black}
+\colorlet{vcol}{green!60!black}
+\colorlet{myred}{red!70!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{mygreen}{green!70!black}
+\colorlet{mydarkred}{myred!70!black}
+\colorlet{mydarkblue}{myblue!60!black}
+\colorlet{mydarkgreen}{mygreen!60!black}
+\colorlet{acol}{red!50!blue!80!black!80}
+\tikzstyle{CM}=[red!40!black,fill=red!80!black!80]
+\tikzstyle{xline}=[xcol,thick,smooth]
+\tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                  top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{faded mass}=[dashed,line width=0.1,red!30!black!40,fill=red!40!black!10,rounded corners=1,
+                        top color=red!40!black!10,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+\def\rope#1{ \draw[black,line width=1.4] #1; \draw[rope,line width=1.1] #1; }
+\tikzstyle{force}=[->,myred,very thick,line cap=round]
+\tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
+\tikzstyle{Fproj}=[force,myred!40]
+\tikzstyle{myarr}=[-{Latex[length=3,width=2]},thin]
+\def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+\DeclareMathOperator{\sn}{sn}
+\DeclareMathOperator{\cn}{cn}
+\DeclareMathOperator{\dn}{dn}
+\def\N{80} % number of samples in plots
+
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\usepackage{siunitx} % units
+\usepackage{verbatim} 
+\newcommand{\courseNumber}{MATH 1700}
+\newcommand{\courseName}{Ideas in Mathematics}
+\newcommand{\professor}{Professor Rimmer}
+\newcommand{\psetName}{Worksheet 4: Cardinality Second Submission}
+\newcommand{\dueDate}{Due: February 20, 2023}
+\newcommand{\name}{Denny Cao}
+\pagestyle{fancy}
+\fancyhf{}% clears all header and footer fields
+\fancyfoot[C]{--~\thepage~--}
+\renewcommand*{\headrulewidth}{0.4pt}
+\renewcommand*{\footrulewidth}{0pt}
+\lhead{\name}
+\chead{\courseNumber: \courseName}
+\rhead{\professor}
+
+% new theorem for questions and answers
+
+\newtheorem{question}{Question}
+
+\newtheorem{answer}{Answer}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}% clears all header and footer fields
+  \fancyfoot[C]{--~\thepage~--}%
+  \renewcommand*{\headrulewidth}{0pt}%
+  \renewcommand*{\footrulewidth}{0pt}%
+}
+
+% Shortcuts
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil} % ceil function
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor} % floor function
+
+\DeclarePairedDelimiter\paren{(}{)} % parenthesis
+
+\newcommand{\df}{\displaystyle\frac} % displaystyle fraction
+\newcommand{\qeq}{\overset{?}{=}} % questionable equality
+
+\newcommand{\Mod}[1]{\;\mathrm{mod}\; #1} % modulo operator
+
+\newcommand{\comp}{\circ} % composition
+
+% Sets
+\DeclarePairedDelimiter\set{\{}{\}}
+\newcommand{\unite}{\cup}
+\newcommand{\inter}{\cap}
+
+\newcommand{\reals}{\mathbb{R}} % real numbers: textbook is Z^+ and 0
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\rats}{\mathbb{Q}}
+
+\newcommand{\degree}{^\circ}
+
+% Counting
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+% Relations
+\newcommand{\rel}{\mathcal{R}} % relation
+
+\setlength\parindent{0pt}
+
+% Directed Graphs
+\usetikzlibrary{arrows}
+\tikzset{vertex/.style = {shape=circle,draw, minimum size=1.5em,
+inner sep=0pt, outer sep=0pt}}
+\tikzset{edge/.style = {->,> = latex'}}
+
+% Sign Charts
+\newdimen\tcolw \tcolw=2.5em % the column width
+\edef\ecatcode{\catcode`&=\the\catcode`&\relax}\catcode`&=4
+\def\sgchart#1#2{\vbox{\offinterlineskip\halign{\hfil##\quad&##\hfil\crcr\sgchartA#2,:,%
+   \omit\sgchartR&\kern.2pt\sgchartS{.5\tcolw}\relax\sgchartE#1,\relax,%
+   \sgchartS{.5\tcolw}\relax\cr
+   \noalign{\kern2pt}&\def~{}\kern.5\tcolw\sgchartD#1,\relax,\cr}}}
+\def\sgchartA#1:#2,{\cr\ifx,#1,\else $#1$&\sgchartB#2{}\expandafter\sgchartA\fi}
+\def\sgchartB#1{\hbox to\tcolw{\hss$#1$\hss}\sgchartC}
+\def\sgchartC#1{\ifx,#1,\else
+   \strut\vrule\kern-.4pt\hbox to\tcolw{\hss$#1$\hss}\expandafter\sgchartC\fi}
+\def\sgchartD#1#2,{\ifx\relax#1\else\hbox to\tcolw{\hss$#1#2$\hss}\expandafter\sgchartD\fi}
+\def\sgchartE#1#2,{\ifx\relax#1\else
+    \ifx~#1\sgchartS\tcolw\circ \else\sgchartS\tcolw\bullet\fi \expandafter\sgchartE\fi}
+\def\sgchartR{\leaders\vrule height2.8pt depth-2.4pt\hfil}
+\def\sgchartS#1#2{\hbox to#1{\kern-.2pt\sgchartR \ifx\relax#2\else
+   \kern-.7pt$#2$\kern-.7pt\sgchartR\fi\kern-.2pt}}
+\ecatcode
+%++++++++++++++++++++++++++++++++++++++++
+% title stuff
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+    \begin{flushleft}
+        \textbf{\@title} \\ \vskip0.2cm
+        \begingroup
+            \fontsize{14pt}{12pt}\selectfont
+            \courseNumber: \courseName 
+            \vskip0.3cm 
+            \professor
+        \endgroup \vskip0.3cm
+        \@date \hfill\rlap{}\bf{\name} \\ \vskip0.1cm
+        \hrulefill
+    \end{flushleft}\egroup 
+}
+\makeatother
+
+\title{\LARGE\bf{\psetName}}
+\author{\name}
+\date{\dueDate}
+
+\author{\name}
+\date{\dueDate}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+
+    \section{Warm-Up Problems}
+    \begin{question}
+        State what it means for sets $A$ and $B$ to have the same cardinality.
+    \end{question}
+
+    \begin{answer}
+        Sets $A$ and $B$ have the same cardinality if and only if there exists a bijection between $A$ and $B$.
+    \end{answer}
+
+    \begin{question}
+        State what it means for a set $A$ to be \textit{countable}.
+    \end{question}
+
+    \begin{answer}
+        A set $A$ is countable if and only if it is finite or if $A$ and $\nats$ have the same cardinality---there exists a bijection between $A$ and the set of natural numbers.
+    \end{answer}
+
+    \section{Some Differences Between Finite Sets and Infinite Sets}
+    \begin{question}
+        Give an example of a function between two \textit{infinite} sets with the same cardinality which is injective but not surjective.
+    \end{question}
+
+    \begin{answer}
+        Let $f: \nats \to \nats$ be defined as 
+        \[ f(x) = x + 1 \]
+        \begin{proof} \ \\
+            $f$ is injective. Let $a,b \in \nats$. $f(a) = f(b) \to a + 1 = b + 1 \to a = b$. Thus, $\forall a \forall b (f(a) = f(b) \leftrightarrow a = b)$. Therefore, $f$ is injective.
+            \\[12pt]
+            $f$ is not surjective. 1 is in the codomain $\nats$, but $1 = x + 1 \to x = 0$. However, $0 \not\in \nats$, the domain of $f$. Thus, $\exists y \in \nats \ \forall x \in \nats \mid f(x) \neq y$. Therefore, $f$ is not surjective.
+        \end{proof}
+    \end{answer}
+
+    \begin{question}
+        Give an example of a function between two \textit{infinite} sets with the same cardinality which is surjective but not injective.
+    \end{question}
+
+    \begin{answer}
+        Let $f: \reals \to \reals$ be defined as:
+        \[ f(x) = x^3 - x \]
+        \begin{proof} \ \\
+            $f$ is not injective. $f(1) = f(0) = 0$. As $\exists a \in \reals \ \exists b \in \reals \mid f(a) = f(b) \land a \neq b$, $f$ is not injective.
+            \\[12pt]
+            $f$ is surjective. Let $x \in \reals$. $\displaystyle\lim_{x \to \infty} f(x) = \infty \land \lim_{x \to -\infty} f(x) = -\infty$. Thus, $f$ is unbounded. Therefore, $\forall y \in \reals \ \exists x_0 \in \reals \ \exists x_1 \in \reals \mid f(x_0) > y \land f(x_1) < y$. As $f$ is continuous, by the Intermediate Value Theorem, $\exists c \in \reals \mid f(c) = y$. Thus, $\forall y \exists x \mid f(x) = y$, meaning $f$ is surjective.
+        \end{proof}
+    \end{answer}
+    \begin{question}
+        If we replaced the word “infinite” with the word “finite” in each of the two previous problems, would either problem have a solution? Why or why not?    
+    \end{question}
+
+    \begin{answer}
+        Question 3 would not have an answer, but Question 4 would have an answer. In Question 3, if two sets $A$ and $B$ are finite and $|A| = |B|$, then the two sets have the same amount of elements. To maintain injectiveness from a mapping from $A \to B$, each element in $A$ must map to a unique element in $B$. It follows that this would create a bijection, meaning it is surjective.
+        \\[12pt]
+        Question 4 would have an answer, as it is possible to map all values in $B$ to the same value in $A$. This would create a surjection, but not an injection.
+    \end{answer}
+
+    \begin{question}
+        Give an example of a function between two \textit{infinite} sets with the same cardinality which is neither injective nor surjective.    
+    \end{question}
+
+    \begin{answer}
+        Let $f: \ints \to \ints$ be defined as $f(x) = 1$. 
+        \begin{proof} \ \\
+            $f$ is not injective. $f(1) = f(0) = 1$. As $\exists a \in \ints \ \exists b \in \ints \mid f(a) = f(b) \land a \neq b$, $f$ is not injective. 
+            \\[12pt]
+            $f$ is not surjective, as only 1 has a preimage. No other value $\in \ints$, the codomain, has a preimage; $\exists y \in \ints \  \forall x \in \ints \mid f(x) \neq y$. Therefore, $f$ is not surjective.  
+        \end{proof}
+    \end{answer}
+
+    \begin{question}
+        Give an example of a function between two \textit{finite} sets with the same cardinality which is neither injective nor surjective.    
+    \end{question}
+
+    \begin{answer}
+        Let $A = \set*{1,2,3}$. Let $f: A \to A$ be defined as $f(x) = 1$. 
+        \begin{proof} \ \\
+            $f$ is not injective, as $f(1) = f(2) = 1$. As $\exists a \in A \ \exists b \in A \mid f(a) = f(b) \land a \neq b$, $f$ is not injective. 
+            \\[12pt]
+            $f$ is not surjective, as not all elements of $A$ has a preimage; $\exists y \in A \ \forall x \in A \mid f(x) \neq y$. Therefore, $f$ is not surjective.
+        \end{proof}
+    \end{answer}
+
+    \begin{question}
+        Why don't your examples in this section contradict the definition of ``same cardinality?''  
+    \end{question}
+
+    \begin{answer}
+        If two sets $A$ and $B$ have the same cardinality, it is possible to create a bijection between $A$ and $B$. For every example that is not bijective, it is still possible to create a bijection between $A$ and $B$ using a different function $f$.
+    \end{answer}
+
+    \section{Sets That Have the Same Cardinality}
+    \begin{question}
+        Construct a bijective function between the set of odd natural numbers and the set of even natural numbers. Do the two sets have the same cardinality?
+    \end{question}
+
+    \begin{answer}
+        Let the set of odd numbers be $O = \set*{2k - 1 \mid k \in \nats}$. Let the set of even numbers be $E = \set*{2k \mid k \in \nats}$. Let $f: O \to E$ be defined as $f(x) = x + 1$. The two sets have the same cardinality, as there exists a bijection between the two sets.
+        \begin{proof} \ \\
+            $f$ is injective. Let $a,b \in O$. $f(a) = f(b) \to a + 1 = b + 1 \to a = b$. Thus, \\ $\forall a \forall b(f(a) = f(b) \leftrightarrow a = b)$.
+            \\[12pt]
+            $f$ is surjective.  $\forall y \in E \ \exists x \in O \mid f(x) = y$, specifically $x = y-1$. Therefore, $f$ is surjective. 
+            \\[12pt]
+            $f$ is bijective, as it is both injective and surjective. The two sets have the same cardinality, as there exists a bijection between the two sets.
+        \end{proof}
+    \end{answer}
+
+    \begin{question}
+        Show that the set of natural numbers that have 3 as a factor is countable.
+    \end{question}
+    
+    \begin{answer} \
+        \begin{proof}
+            Let the set of natural numbers that have 3 as a factor be $A = \set*{3k \mid k \in \nats}$. To prove that $A$ is countable, we must show that there exists a bijection between $\nats$ and $A$. Let $f: \nats \to A$ be defined as $f(x) = 3x$. 
+            \\[12pt]
+            $f$ is injective. Let $a,b \in \nats$. $f(a) = f(b) \to 3a = 3b \to a = b$. Thus, \\ $\forall a \forall b (f(a) = f(b) \leftrightarrow a = b$).
+            \\[12pt]
+            $f$ is surjective. $\forall y \in A \ \exists x \in \nats \mid f(x) = y$, specifically $x = \displaystyle\frac{y}{3}$. As there exists a preimage for every element of $A$, $f$ is surjective.
+            \\[12pt]
+            $f$ is bijective, as it is both injective and surjective. The two sets have the same cardinality, as there exists a bijection between the two sets. Therefore, $A$ is countable.
+        \end{proof}
+    \end{answer}
+
+    \begin{question}
+        Exhibit a bijective function between the set of prime numbers and the set of integers. You do \textit{not} need to represent your function algebraically.
+    \end{question}
+
+    \begin{answer}
+        We can list the prime numbers in ascending order: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, $\dots$
+        \\[12pt]
+        Then, we can assign each prime number a natural number in the following way:
+        \begin{align*}
+            2 & \mapsto 1 \\
+            3 & \mapsto 2 \\
+            5 & \mapsto 3 \\
+            7 & \mapsto 4 \\
+            11 & \mapsto 5 \\
+            13 & \mapsto 6 \\
+            17 & \mapsto 7 \\
+            19 & \mapsto 8 \\
+            23 & \mapsto 9 \\
+            29 & \mapsto 10 \\
+            31 & \mapsto 11 \\
+               &\shortvdotswithin{\mapsto}
+        \end{align*}
+        This function is bijective because each prime number is assigned a unique natural number and vice versa. 
+    \end{answer}
+
+    \begin{question}
+        Show that the set [0, 1] has the same cardinality as the set [0, 1000]. (The notation [a, b] means the set of all real numbers at least a and no greater than b, including the numbers a and b.)    
+    \end{question}  
+
+    \begin{answer} \
+        \begin{proof}
+            Let $f: [0, 1] \to [0, 1000]$ be defined as $f(x) = 1000x$. 
+            \\[12pt]
+            $f$ is injective. Let $a,b \in [0, 1]$. $f(a) = f(b) \to 1000a = 1000b \to a = b$. Thus, \\ $\forall a \forall b (f(a) = f(b) \leftrightarrow a = b)$.
+            \\[12pt]
+            $f$ is surjective. $\forall y \in [0, 1000] \ \exists x \in [0, 1] \mid f(x) = y$, specifically $x = \displaystyle\frac{y}{1000}$. As there exists a preimage for every element of $[0, 1000]$, $f$ is surjective.
+            \\[12pt]
+            $f$ is bijective, as it is both injective and surjective. The two sets have the same cardinality, as there exists a bijection between the two sets.
+        \end{proof}
+    \end{answer}
+
+    \begin{question} \label{q:language}
+        You come across a previously undiscovered ancient language. The language appears to have four letters, which can be used in any order to form words. There is no known limit on the number of letters per word, although each individual word may only have finitely many letters. Explain why the set of all possible words in this language is countable.
+    \end{question}
+
+    \begin{answer} \
+        \begin{proof}
+            Let $S$ be the set of all possible words in the language made up of 4 letters, where ``a'' is the first letter, ``b'' is the second letter, ``c'' is the third letter, and ``d'' is the fourth letter.
+            \\[12pt]
+            We can construct a function $f: S \to \nats$ as follows: 
+            \begin{itemize}
+                \item For any word $w \in S$, we can represent $w$ in base 5, where 1 represents the first letter, 2 represents the second letter, 3 represents the third letter, and 4 represents the fourth letter. (Note that we did not use base 4 in order to remove ambiguity for the first letter ``a''. For instance, in base 4, ``abba'' and ``bba'' would have no distinction, as they are both represented by $110_4$.) 
+                \item Convert the base 5 representation of $w$ to base 10, and let $f(w)$ be the resulting number.
+            \end{itemize}
+            For instance, The word ``abba'' can be represented as the number $1221_5$. This base 5 representation can then be converted to a unique natural number in base 10 (Note that $0_{10}$ is not included, as $0_5$ maps to $0_{10}$, but $0_5$ would imply that the word is empty, which is not allowed). In the case of ``abba'', $1221_5 = 1 \cdot 5^3 + 2 \cdot 5^2 + 2 \cdot 5^1 + 1 \cdot 5^0 = 1 \cdot 125 + 2 \cdot 25 + 2 \cdot 5 + 1 \cdot 1 = 186$. Thus, $f(\text{abba}) = 186$.
+            \\[12pt]
+            To show that $S$ is countable, we must show that $f$ is bijective.
+            \\[12pt]
+            $f$ is injective. Let $w_1, w_2 \in S$. As each word maps to a unique base 5 representation which maps to a unique base 10 representation, $\forall w_1 \forall w_2 (f(w_1) = f(w_2) \leftrightarrow w_1 = w_2)$. Thus, $f$ is injective.
+            \\[12pt]
+            $f$ is surjective. Let $n \in \nats$. As each natural number $n$ maps to a unique base 10 representation, there exists a unique base 5 representation of $n$. We can then convert this base 5 representation to a word in the language. As each natural number $n$ maps to a unique word, $\forall n \exists w \in S \mid f(w) = n$, and thus $f$ is surjective.
+            \\[12pt]
+            $f$ is bijective, as it is both injective and surjective. The two sets have the same cardinality, as there exists a bijection between the two sets. Thus, $S$ is countable.
+        \end{proof}
+    \end{answer}
+    \section{Reflection}
+    \textbf{Identify at least one wrong or failed idea that turned out to be helpful or enlightening in some way. For instance, that idea might have helped you solve a problem, or it may have been the start of a conversation that improved your understanding more generally. You can list one of your own ideas, or an idea that originated with a classmate. (Please give your classmate credit!)}
+
+    My initial idea for \hyperref[q:language]{Question 13} was to map each letter to a unique number from 1 to 4, which could be used to create a unique natural number. However, I realized that this would not work, as there would be numbers not included in this mapping. For instance, the number 5 would not be included, meaning it would not result in a surjective function. Akash suggested that I use base 4 and then convert to base 10, however, I realized that this would not work either, as there would be ambiguity for the first letter ``a''. For instance, in base 4, ``abba'' and ``bba'' would have no distinction, as they are both represented by $110_4$. I then realized that I could use base 5, and this worked perfectly, as each word would have a unique base 5 representation, which would map to a unique base 10 representation, which would map to a unique natural number. 
+\end{document} 

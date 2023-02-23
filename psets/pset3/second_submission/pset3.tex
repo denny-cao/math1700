@@ -77,8 +77,8 @@
 \newcommand{\courseNumber}{MATH 1700}
 \newcommand{\courseName}{Ideas in Mathematics}
 \newcommand{\professor}{Professor Rimmer}
-\newcommand{\psetName}{Worksheet 3: Sets and Functions First Submission}
-\newcommand{\dueDate}{Due: February 1, 2023}
+\newcommand{\psetName}{Worksheet 3: Sets and Functions Second Submission}
+\newcommand{\dueDate}{Due: February 6, 2023}
 \newcommand{\name}{Denny Cao}
 \pagestyle{fancy}
 \fancyhf{}% clears all header and footer fields
@@ -163,7 +163,7 @@
     \pagebreak
 
     \section{Function Review}
-    \begin{enumerate}[(1)]
+    \begin{enumerate}[(1)] \label{q:1}
         \item \textbf{Consider the relationships below. None of them are functions. For each example, explain why.}
         \begin{enumerate}[(a)]
             \item $f: \set*{a, b, c} \to \nats$ 
@@ -179,11 +179,11 @@
                 \end{tabular}
             \end{figure}
             \begin{proof}
-                The definition of a function is that all elements in the domain have a unique image in the codomain. In this case, $b$ has two images, $7$ and $4$, and is therefore $f$ is not a function.
+                The definition of a function is that all elements in the domain have a unique image in the codomain. In this case, $b$ maps to two elements in the codomain, $7$ and $4$, and therefore $f$ is not a function.
             \end{proof}
             \item $g: \nats \to \nats , g(n) = n-4$
             \begin{proof}
-                The definition of a function is that all elements in the domain have a unique image in the codomain. In this case, the preimages 1,2,3, and 4 map to numbers not in the codomain of $\nats$. Therefore, for these values, there is no unique image for all values in the domain, meaning $g$ is not a function.
+                The definition of a function is that all elements in the domain have a unique image in the codomain. In this case, 1,2,3, and 4 map to numbers not in the codomain of $\nats$. Therefore, for these values, there is no unique image for all values in the domain, meaning $g$ is not a function.
             \end{proof}
             \item $h: \ints \to \rats, h(z) = \df{1}{z}$
             \begin{proof}
@@ -195,7 +195,7 @@
             \textbf{The function is injective}. The definition of injective for a function $f$ with domain $A$ is \[ \forall x \forall y((x,y \in A \land f(x) = f(y)) \to x = y) \] In this case, $f(x) = 2x$ and $f(y) = 2y$, so if $f(x) = f(y)$, then $2x = 2y \to x = y$. Therefore, the function is injective.
         \end{proof}
         \begin{proof}
-            \textbf{The function is not surjective}. The definition of surjective for a function $f$ with domain $A$ is \[ \forall y \exists x(x \in A \land f(x) = y) \] In this case, $f(x) = 2x$. This means that all values in the domain map to an even number. Since the codomain is $\ints$, there are infinitely many integers that are not even, there are infinitely many values in the codomain that are not images of the domain. Therefore, the function is not surjective.
+            \textbf{The function is not surjective}. The definition of surjective for a function $f$ with domain $A$ is \[ \forall y \exists x(x \in A \land f(x) = y) \] In this case, $f(x) = 2x$. This means that all values in the domain map to an even number. Since the codomain is $\ints$, there are infinitely many integers that are not even---there are infinitely many values in the codomain which do not have a preimage. Therefore, the function is not surjective.
         \end{proof}
         \item \textbf{Consider the function from $\nats$ to $\nats$ that adds one to every number in the source. Is this function injective? Surjective?}
         \begin{proof}
@@ -249,19 +249,22 @@
             \item \textbf{Suppose you have a very large fish bowl, and infinitely many fish nearby. The fish are numbered 1, 2, 3, 4, . . . When you start out, none of the fish are in the bowl. Then suddenly fish \#1 leaps into the bowl. Next, fish \#2, \#3,. . . ,\#10 all jump into the bowl, and fish \#1 jumps back out. After that, fish \#11 through \#100 all jump in, and \#2 jumps out. Next \#101 through \#1000 all jump in and \#3 jumps out. The process continues, ad infinitum.}
             \begin{enumerate}[(a)]
                 \item \textbf{How many fish are in the bowl after 4 steps of the above process? 10 steps? 100 steps?}
+                
+                The number of fish in the bowl after $n$ steps is $f(n)$. We can represent this as a piecewise function:
                 \[ f(n) = \begin{cases}
-                    1 & n = 1 \\
-                    1 + \displaystyle\sum_{i=2}^n \frac{9}{100}(10)^{i} - 1 & n \geq 2 
+                    0 & n = 0 \\
+                    1 - n + 10^{n-1} & n \geq 1
                 \end{cases} \]
+                The latter case is obtained by the following reasoning. Each iteration, $9(10)^{i-1}$ fish jump in, and 1 fish jumps out. Thus, the number of fish in the bowl after $n$ steps is:
                 \begin{align*}
-                    \sum_{i=2}^n \frac{9}{100}(10)^{i} - 1 = \sum_{i=1}^n \paren*{\frac{9}{100}(10)^{i}} - \paren*{1 - \frac{1}{100} - 1} &= \frac{\df{9}{100}(10)^{n+1} - \df{9}{100}}{9} - n - \frac{1}{100}\\
-                    &= \frac{10^{n+1}}{100} - \frac{1}{100} - n - \frac{1}{100}\\
-                    &= 10^{n-1} - n
+                    1 + \sum_{i=1}^n \paren*{9(10)^{i-1} - 1} &= 1 - n + 9 \sum_{i=1}^n 10^{i-1} \\
+                    &= 1 - n + 9 \paren*{\frac{10^n - 1}{9}} \\
+                    &= 1 - n + 10^{n-1} 
                 \end{align*}
-                After 4 steps, $n=4$, there will be 996 fish in the bowl. After 10 steps, $n=10$, there will be 999,996 fish in the bowl. After 100 steps, $n=100$, there will be 999,999,990 fish in the bowl. After 100 steps, there $10^{99} - 100$ fish in the bowl.
+                After 4 steps, $n=4$, there will be 997 fish in the bowl. After 10 steps, $n=10$, there will be 999,999,991 fish in the bowl. After 100 steps, there will be $10^{99} - 99$ fish in the bowl.
                 \item \textbf{After infinitely many steps, how many fish are in the bowl? (Hint: At the end of the minute, each fish is either in the bowl or outside the bowl. Which fish are in and which are out?)}
             
-                There will be $10^{n-1} - n$ fish in the bowl after $n$ steps. As $n$ approaches infinity, the number of fish in the bowl approaches infinity.
+                There will be $10^{n-1} - n + 1$ fish in the bowl after $n$ steps. As $n$ approaches infinity, the number of fish in the bowl approaches infinity, since more fish are added ($10^{n-1}$) to the bowl than are removed ($n$).
             \end{enumerate}
     \end{enumerate}
     \section{Russell's Paradox}
@@ -269,29 +272,36 @@
             \setcounter{enumi}{8}
             \item \textbf{Consider the set of all sets that contain themselves. Can you tell whether or not this set contains itself?}
             
-            It is impossible to determine.
+            It is impossible to determine; both possibilities are possible.
             \begin{proof}
-                By contradiction. Suppose that the set of all sets that contain themselves contains itself. Then, it must not contain itself because if it contains itself, it does not belong to the set of all sets that contain themselves.
-
-                On the other hand, if the set of all sets that contain themselves does not contain itself, then it should belong to the set of all sets that contain themselves.
+                Let the set of all sets that contain themselves be $S = \set*{A \mid A \in A}$, where $A$ is a set. There are two possibilities: either $S$ contains itself or it does not. 
                 
-                Therefore, we have reached a contradiction, and it is impossible to determine whether or not the set of all sets that contain themselves contains itself.
+                If $S$ contains itself, then $S \in S$ by the definition of $S$; $S \in S \to S \in S$. 
+                
+                If $S$ does not contain itself, then $S \not\in S$ by the definition of $S$; $S \not\in S \to S \not\in S$. 
+                
+                As both implications are true, it is impossible to determine whether or not $S$ contains itself.
             \end{proof}
             \item \textbf{Now consider the set of all sets that do not contain themselves. Can this set contain itself? Can it not?}
             
-            This set cannot contain itself.
+            This set cannot contain itself nor not contain itself, as such a set cannot exist.
             \begin{proof}
-                By contradiction. Assume for purposes of contradiction that there is a set $S$ of all sets that do not contain themselves. $S = \set*{A \mid A \not\in A}$, where $A$ is a set. $S \in S \to S \not\in S$, as $S$ is a set of sets that do not contain themselves. If $S \not\in S$, then $S \in S'$, the complement of $S$---a set of all sets that contain themselves. Therefore, $S \in S$. $\contradiction$
+                By contradiction. Assume for purposes of contradiction that there is a set of all sets that do not contain themselves, $S = \set*{A \mid A \not\in A}$, where $A$ is a set. There are two possibilities: $S$ contains itself or $S$ does not contain itself.
                 
-                We reach a contradiction, as $S$ is the set of all sets that do not contain themselves. Therefore, $S$ cannot contain itself.
+                If $S \in S$, then $S \not\in S$, as $S$ is the set of all sets that do not contain themselves; $S \in S \to S \not\in S$. $\contradiction$
+
+                If $S \not\in S$, then $S \in S$, as $S$ is the set of all sets that do not contain themselves ; $S \not\in S \to S \in S$.  $\contradiction$
+                
+                We reach a paradox, as $S \in S \to S \not\in S$ and $S \not\in S \to S \in S$. Both implications are contradictions, leading to the conclusion that such a set $S$ cannot exist.
             \end{proof}
         \end{enumerate}
         \section{Reflection}
-        \textbf{What content do I need to review before attempting the worksheet again? Are there any videos I need to rewatch?}
+        \textbf{Identify at least one wrong or failed idea that turned out to be helpful or enlightening in some way. For instance, that idea might have helped you solve a problem, or it may have been the start of a conversation that improved your understanding more generally. You can list one of your own ideas, or an idea that originated with a classmate. (Please give your classmate credit!)}
 
-        I need to review definitions. I used preimage and image interchangably with elements in the domain and elements in the codomain, and I'm not sure if that is correct. I also need to see if there is a better way to explain 7b about how more elements in the codomain than the domain means that injective functions can be created. 
-        
-        \textbf{What questions would I like to ask my group during the next class discussion?}
+        For \hyperref[q:1]{Question 1}, I had an entire discussion with a friend outside of class, Daniel, from my MATH 163: Discrete Mathematics class at CCP, about what it means to be a function. Initially, I used injective to describe functions, but once I got to part B, I realized that this was wrong, as $g: \nats \to \nats, g(n)=n-4$ is surjective. Daniel messaged me that it is not a function because ``not every element in the domain is `assigned' an element in the codomain''. 
+        \\[12pt]
+        I then thought that this meant a function must be injective, and we went to a discussion about what it means for a function to be injective. Injective doesn't have any qualifications about how many elements in the domain are mapped to the codomain; it only says that if $f(x_1) = f(x_2) \to x_1 = x_2$, or that every element in the codomain can only be mapped from one element. 
+        \\[12pt]
+        To be a function, each element in the domain must map to one element in the codomain. Injectivity says nothing about if $f(x_1) \lor f(x_2)$ does not exist. We realized that this is why functions such as $\sqrt{x}$ are functions, as the domain is restricted to $\reals^+ \unite \set*{0}$, and the codomain is restricted to $\reals^+$, and every element in the domain maps to one element in the codomain.
 
-        The fishbowl question. I did not know how it related to this week's topic, so there is probably something that I am missing. It might explain why I don't really know how to answer 8b. 
 \end{document}
