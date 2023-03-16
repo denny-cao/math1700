@@ -199,16 +199,111 @@ inner sep=0pt, outer sep=0pt}}
     \end{question}
     % Answer 1
     \begin{answer}  
-        Yes, it is possible to switch some crossings in the Borromean rings to obtain a trefoil knot. We label the crossings and strands in the Borromean rings as follows:
-
-        \begin{figure}[H]
-            \centering
-            \begin{tikzpicture}
-                \begin{knot}
-                    
-                \end{knot}
-            \end{tikzpicture}
-        \end{figure}
+        No, it is not possible to switch some crossings in the Borromean rings to obtain a trefoil knot. 
+        
+        \begin{proof}
+            We label the crossings and strands in the Borromean rings as follows:
+            \begin{figure}[H]
+                \centering
+                \begin{tikzpicture}
+                    \begin{knot}[
+                        draft mode=crossings,
+                        clip width=5,
+                        flip crossing=2,
+                        flip crossing=3,
+                        flip crossing=4,
+                        draft/crossing label/.style={
+                            text=black,
+                            pin position=90,
+                        },
+                        draft/crossing 6 label/.style={
+                            text=black,
+                            pin position=135,
+                        },
+                        draft/crossing 3 label/.style={
+                            text=black,
+                            pin position=45,
+                        },
+                        draft/crossing 2 label/.style={
+                            text=black,
+                            pin position=-90,
+                        },
+                        draft/crossing 4 label/.style={
+                            text=black,
+                            pin position=135,
+                        },
+                        draft/crossing 5 label/.style={
+                            text=black,
+                            pin position=45,
+                        },
+                        draft/strand label/.style={
+                            fill opacity=0,
+                        },
+                    ]                    
+                        \strand[black, ultra thick] (0,2) circle (1.5) node[label={[label distance=0.3cm]225:$S_1$}] {};
+                        \strand[black, ultra thick] (2.5,2) circle (1.5) node[label={[label distance=0.3cm]315:$S_2$}] {};
+                        \strand[black, ultra thick] (1.25,3.5) circle (1.5) node[label={[label distance=0.3cm]90:$S_3$}] {};
+                    \end{knot}
+                \end{tikzpicture}
+            \end{figure}
+            A property of Borromean rings is that the three interlocked strands cannot be separated. As a trefoil is a single strand, without any crossing switches, it is not possible to obtain a trefoil from the Borromean rings. 
+            \\[12pt]
+            If we were to switch crossings to result in a single strand, we would need to switch crossings 2, 3, and 4. However, this would result in the following diagram:
+            \begin{figure}[H]
+                \centering
+                \begin{tikzpicture}
+                    \begin{knot}[
+                        draft mode=crossings,
+                        clip width=5,
+                        draft/crossing label/.style={
+                            text=black,
+                            pin position=90,
+                        },
+                        draft/crossing 6 label/.style={
+                            text=black,
+                            pin position=135,
+                        },
+                        draft/crossing 3 label/.style={
+                            text=black,
+                            pin position=45,
+                        },
+                        draft/crossing 2 label/.style={
+                            text=black,
+                            pin position=-90,
+                        },
+                        draft/crossing 4 label/.style={
+                            text=black,
+                            pin position=135,
+                        },
+                        draft/crossing 5 label/.style={
+                            text=black,
+                            pin position=45,
+                        },
+                        draft/strand label/.style={
+                            fill opacity=0,
+                        },
+                    ]                    
+                        \strand[black, ultra thick] (0,2) circle (1.5) node[label={[label distance=0.3cm]225:$S_1$}] {};
+                        \strand[black, ultra thick] (2.5,2) circle (1.5) node[label={[label distance=0.3cm]315:$S_2$}] {};
+                        \strand[black, ultra thick] (1.25,3.5) circle (1.5) node[label={[label distance=0.3cm]90:$S_3$}] {};
+                    \end{knot}
+                \end{tikzpicture}
+            \end{figure}
+            With a Reidemeister move, the three strands can be separated, resulting in 3 unknots:
+            \begin{figure}[H]
+                \centering
+                \begin{tikzpicture}
+                    \begin{knot}[
+                        clip width=5,
+                    ]                    
+                        \strand[black, ultra thick] (0,2) circle (1.5) node[label={[label distance=0.3cm]225:$S_1$}] {};
+                        \strand[black, ultra thick] (3.5,2) circle (1.5) node[label={[label distance=0.3cm]315:$S_2$}] {};
+                        \strand[black, ultra thick] (1.75,5) circle (1.5) node[label={[label distance=0.3cm]90:$S_3$}] {};
+                    \end{knot}
+                \end{tikzpicture}
+            \end{figure}
+            As a trefoil has the invariant of being three-colored and unknots are not, a trefoil cannot be obtained from the Borromean rings by switching crossings.
+        \end{proof}
     \end{answer}
 
     % Question 2
@@ -217,7 +312,84 @@ inner sep=0pt, outer sep=0pt}}
     \end{question}
     % Answer 2
     \begin{answer}
-    
+        Yes, it is possible to switch some crossings in the trefoil knot to obtain an unknot. The minimum number of switches needed is 2.
+        \begin{proof}
+            We label the crossings in the trefoil as follows:
+            \begin{figure}[H]
+                \centering
+                \begin{tikzpicture}
+                    \begin{knot}[
+                        draft mode=crossings,
+                        clip width=5,
+                        consider self intersections=true,
+                      %  draft mode=crossings,
+                        flip crossing=2,
+                        only when rendering/.style={
+                      %    show curve controls
+                        },
+                        draft/crossing label/.style={
+                            text=black,
+                            pin position=90,
+                        },
+                        draft/crossing 1 label/.style={
+                            text=black,
+                            pin position=45,
+                        },
+                        draft/crossing 2 label/.style={
+                            text=black,
+                            pin position=-90,
+                        },
+                        draft/crossing 3 label/.style={
+                            text=black,
+                            pin position=135,
+                        },
+                        draft/strand label/.style={
+                            fill opacity=0,
+                        },
+                        ]
+                      \strand[black, ultra thick] (0,2) .. controls +(2.2,0) and +(120:-2.2) .. (210:2) .. controls +(120:2.2) and +(60:2.2) .. (-30:2) .. controls +(60:-2.2) and +(-2.2,0) .. (0,2);
+                      \end{knot}
+                \end{tikzpicture}
+            \end{figure}
+            We can switch crossings 2 and 3 to obtain the following diagram:
+            \begin{figure}[H]
+                \centering
+                \begin{tikzpicture}
+                    \begin{knot}[
+                        draft mode=crossings,
+                        clip width=5,
+                        consider self intersections=true,
+                      %  draft mode=crossings,
+                        flip crossing=3,
+                        only when rendering/.style={
+                      %    show curve controls
+                        },
+                        draft/crossing label/.style={
+                            text=black,
+                            pin position=90,
+                        },
+                        draft/crossing 1 label/.style={
+                            text=black,
+                            pin position=45,
+                        },
+                        draft/crossing 2 label/.style={
+                            text=black,
+                            pin position=-90,
+                        },
+                        draft/crossing 3 label/.style={
+                            text=black,
+                            pin position=135,
+                        },
+                        draft/strand label/.style={
+                            fill opacity=0,
+                        },
+                        ]
+                      \strand[black, ultra thick] (0,2) .. controls +(2.2,0) and +(120:-2.2) .. (210:2) .. controls +(120:2.2) and +(60:2.2) .. (-30:2) .. controls +(60:-2.2) and +(-2.2,0) .. (0,2);
+                      \end{knot}
+                \end{tikzpicture}
+            \end{figure}
+            With Reidemeister moves, we can form the unknot. Thus, it is possible to switch 2 crossings of the trefoil knot to obtain an unknot. It is impossible to switch 1 crossing of the trefoil knot to obtain an unknot, as it has the invariant of being three-colored, while the unknot does not. Thus, the minimum number of switches needed is 2.
+        \end{proof}
     \end{answer}
 
     % Question 3
@@ -226,8 +398,26 @@ inner sep=0pt, outer sep=0pt}}
     \end{question}
 
     % Answer 3
-    \begin{answer}
+    \begin{answer} \ 
 
+        \begin{itemize}
+            \item \ \\ \includegraphics[scale=.4]{slinky.png}
+            
+            It is possible to obtain the unknot from the slinky knot by ``unwrapping'' the knot through slide moves. 
+            \item \ \\ \includegraphics[scale=.4]{croc.png}
+            
+            We do the following Reidemeister moves to obtain the unknot:
+
+            \includegraphics[scale=.3]{wtf.png}
+            \item \ \\ \includegraphics[scale=.4]{elephant.png}
+            
+            We do the following Reidemeister moves to obtain the unknot:
+
+            \includegraphics[scale=.4]{wtf2.png}
+            \item \ \\ \includegraphics[scale=.4]{pacifier.png}
+            \includegraphics[scale=.4]{wtf3.png}
+        \end{itemize}
+        As we can see, the Reidemeister moves we performed to obtain the unknot from each of the diagrams are as simple as possible. We can't do any better because it is prime.
     \end{answer}
 
     % Question 4    
@@ -236,7 +426,12 @@ inner sep=0pt, outer sep=0pt}}
     \end{question}
     % Answer 4
     \begin{answer}
-    
+        No, they are not three-colorable. The coloring for the three figures are as follows:
+        \begin{itemize}
+            \item \ \\ \includegraphics[scale=.2]{figure_8.png}
+            \item \ \\ \includegraphics[scale=.2]{star.png}
+            \item \ \\ \includegraphics[scale=.2]{pret.png}
+        \end{itemize}
     \end{answer}
 
     % Question 5
@@ -245,7 +440,9 @@ inner sep=0pt, outer sep=0pt}}
     \end{question}
     % Answer 5
     \begin{answer}
-
+        \begin{proof}
+            To construct a trefoil knot with exactly $n$ crossings, we can start with the standard trefoil diagram with three crossings and then add $n-3$ additional crossings to it by twisting one of the strands around itself $n-3$ times. The total number of crossings is $n$.
+        \end{proof}
     \end{answer}
 
     % Question 6
@@ -254,6 +451,77 @@ inner sep=0pt, outer sep=0pt}}
     \end{question}
     % Answer 6
     \begin{answer}
-
+        \begin{proof}
+            We label the crossings in the trefoil as follows:
+            \begin{figure}[H]
+                \centering
+                \begin{tikzpicture}
+                    \begin{knot}[
+                        draft mode=crossings,
+                        clip width=5,
+                        consider self intersections=true,
+                      %  draft mode=crossings,
+                        flip crossing=2,
+                        only when rendering/.style={
+                      %    show curve controls
+                        },
+                        draft/crossing label/.style={
+                            text=black,
+                            pin position=90,
+                        },
+                        draft/crossing 1 label/.style={
+                            text=black,
+                            pin position=45,
+                        },
+                        draft/crossing 2 label/.style={
+                            text=black,
+                            pin position=-90,
+                        },
+                        draft/crossing 3 label/.style={
+                            text=black,
+                            pin position=135,
+                        },
+                        draft/strand label/.style={
+                            fill opacity=0,
+                        },
+                        ]
+                      \strand[black, ultra thick] (0,2) .. controls +(2.2,0) and +(120:-2.2) .. (210:2) .. controls +(120:2.2) and +(60:2.2) .. (-30:2) .. controls +(60:-2.2) and +(-2.2,0) .. (0,2);
+                      \end{knot}
+                \end{tikzpicture}
+            \end{figure}
+        We can see that the crossings alternate between over and under as we travel along the knot, as 1 is over, 2 is under, and 3 is over. Thus, the trefoil is alternating.
+        \\[12pt]
+        It is possible for a knot diagram with an odd number of crossings to be alternating because, by linking back to the starting point, alternating crossings are possible.
+    \end{proof}
     \end{answer}    
+    
+    % Question 7
+    \begin{question}
+        Consider the link below. 
+
+        \includegraphics[scale=.4]{fullpaper.png}
+        
+        It is \textit{not} equivalent to the Borromean rings. Show that after removing any one of the strands, it is possible to separate the other two using Reidemeister moves.
+    \end{question}
+
+    % Answer 7
+    \begin{answer}
+        \begin{proof}
+            The following are how the link would look like after removing one of the strands:
+            
+            \includegraphics[scale=.4]{paperclip_and_shit.png}
+
+            We can see that after removing one of the strands, it is possible to separate the other two using Reidemeister moves. In the first, we can separate the two strands by performing a slide move on the strand on the left. In the second, we can separate the two strands by performing a slide move on the strand on the left as well. In the third, we can separate the two strands by performing a poke and then a twist on the blue strand. 
+        \end{proof}
+    \end{answer}
+    \section*{Reflection}
+    \begin{enumerate}[1.]
+        \item \textbf{What content do I need to review before attempting the worksheet again? Are there any videos I need to rewatch?}
+        
+        I need to review three-coloring, as I do not fully understand when to make crossings the same color, or three colors. 
+
+        \item \textbf{What questions would I like to ask my group during the next class discussion?}
+        
+        I would like to ask my group about Question 1, as I am not sure if my explanation about how you can separate it into 3 unknots which are not tri-colorable makes sense. I am confused whether or not that is true, as an unknot can be colored as the same color, fulfilling how a crossing is the same color.
+    \end{enumerate}
 \end{document} 
