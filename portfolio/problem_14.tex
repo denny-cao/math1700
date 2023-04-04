@@ -1,0 +1,256 @@
+%++++++++++++++++++++++++++++++++++++++++
+\documentclass[article, 12pt]{article}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tabu} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\usepackage{tikz}
+\usepackage{caption} 
+\usepackage{fancyhdr}
+\usepackage{amssymb} % symbols like /therefore
+\usepackage{amsthm} % proofs
+\usepackage{enumerate} % lettered lists
+\usepackage{mathtools} % macros
+\usepackage[ all]{xy} % for diagrams
+\usepackage{tkz-graph}
+\usetikzlibrary{knots}
+\usetikzlibrary{scopes}
+% \usepackage{xcolor} \pagecolor[rgb]{0.12549019607,0.1294117647,0.13725490196} \color[rgb]{0.82352941176,0.76862745098,0.62745098039} % dark theme
+\theoremstyle{definition}
+\newtheorem{example}{Example}[subsubsection]
+\newtheorem*{remark}{Remark}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}[subsubsection]
+\newtheorem{corollary}{Corollary}[subsubsection]
+\hypersetup{
+	colorlinks=true,      % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{tikz,pgfplots}
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{arrows.meta}
+\tikzset{>=latex} % for LaTeX arrow head
+\contourlength{1.2pt}
+
+\colorlet{xcol}{blue!70!black}
+\colorlet{vcol}{green!60!black}
+\colorlet{myred}{red!70!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{mygreen}{green!70!black}
+\colorlet{mydarkred}{myred!70!black}
+\colorlet{mydarkblue}{myblue!60!black}
+\colorlet{mydarkgreen}{mygreen!60!black}
+\colorlet{acol}{red!50!blue!80!black!80}
+\tikzstyle{CM}=[red!40!black,fill=red!80!black!80]
+\tikzstyle{xline}=[xcol,thick,smooth]
+\tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                  top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{faded mass}=[dashed,line width=0.1,red!30!black!40,fill=red!40!black!10,rounded corners=1,
+                        top color=red!40!black!10,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+\def\rope#1{ \draw[black,line width=1.4] #1; \draw[rope,line width=1.1] #1; }
+\tikzstyle{force}=[->,myred,very thick,line cap=round]
+\tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
+\tikzstyle{Fproj}=[force,myred!40]
+\tikzstyle{myarr}=[-{Latex[length=3,width=2]},thin]
+\def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+\DeclareMathOperator{\sn}{sn}
+\DeclareMathOperator{\cn}{cn}
+\DeclareMathOperator{\dn}{dn}
+\def\N{80} % number of samples in plots
+
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\usepackage{siunitx} % units
+\usepackage{verbatim} 
+\newcommand{\courseNumber}{MATH 1700}
+\newcommand{\courseName}{Ideas in Mathematics}
+\newcommand{\professor}{Professor Rimmer}
+\newcommand{\psetName}{Portfolio Resubmission 2}
+\newcommand{\dueDate}{Due: March 31, 2023}
+\newcommand{\name}{Denny Cao}
+\pagestyle{fancy}
+\fancyhf{}% clears all header and footer fields
+\fancyfoot[C]{--~\thepage~--}
+\renewcommand*{\headrulewidth}{0.4pt}
+\renewcommand*{\footrulewidth}{0pt}
+\lhead{\name}
+\chead{\courseNumber: \courseName}
+\rhead{\professor}
+
+% new theorem for questions and answers
+
+\newtheorem{question}{Question}
+
+\newtheorem{answer}{Answer}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}% clears all header and footer fields
+  \fancyfoot[C]{--~\thepage~--}%
+  \renewcommand*{\headrulewidth}{0pt}%
+  \renewcommand*{\footrulewidth}{0pt}%
+}
+
+% Shortcuts
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil} % ceil function
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor} % floor function
+
+\DeclarePairedDelimiter\paren{(}{)} % parenthesis
+
+\newcommand{\df}{\displaystyle\frac} % displaystyle fraction
+\newcommand{\qeq}{\overset{?}{=}} % questionable equality
+
+\newcommand{\Mod}[1]{\;\mathrm{mod}\; #1} % modulo operator
+
+\newcommand{\comp}{\circ} % composition
+
+% Sets
+\DeclarePairedDelimiter\set{\{}{\}}
+\newcommand{\unite}{\cup}
+\newcommand{\inter}{\cap}
+
+\newcommand{\reals}{\mathbb{R}} % real numbers: textbook is Z^+ and 0
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\rats}{\mathbb{Q}}
+
+\newcommand{\degree}{^\circ}
+
+% Counting
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+% Relations
+\newcommand{\rel}{\mathcal{R}} % relation
+
+\setlength\parindent{0pt}
+
+% Directed Graphs
+\usetikzlibrary{arrows}
+\tikzset{vertex/.style = {shape=circle,draw, minimum size=1.5em,
+inner sep=0pt, outer sep=0pt}}
+\tikzset{edge/.style = {->,> = latex'}}
+
+% Contradiction
+\newcommand{\contradiction}{{\hbox{%
+    \setbox0=\hbox{$\mkern-3mu\times\mkern-3mu$}%
+    \setbox1=\hbox to0pt{\hss$\times$\hss}%
+    \copy0\raisebox{0.5\wd0}{\copy1}\raisebox{-0.5\wd0}{\box1}\box0
+}}}
+
+\newtheorem{lemma}[section]{Lemma}
+
+% Sign Charts
+\newdimen\tcolw \tcolw=2.5em % the column width
+\edef\ecatcode{\catcode`&=\the\catcode`&\relax}\catcode`&=4
+\def\sgchart#1#2{\vbox{\offinterlineskip\halign{\hfil##\quad&##\hfil\crcr\sgchartA#2,:,%
+   \omit\sgchartR&\kern.2pt\sgchartS{.5\tcolw}\relax\sgchartE#1,\relax,%
+   \sgchartS{.5\tcolw}\relax\cr
+   \noalign{\kern2pt}&\def~{}\kern.5\tcolw\sgchartD#1,\relax,\cr}}}
+\def\sgchartA#1:#2,{\cr\ifx,#1,\else $#1$&\sgchartB#2{}\expandafter\sgchartA\fi}
+\def\sgchartB#1{\hbox to\tcolw{\hss$#1$\hss}\sgchartC}
+\def\sgchartC#1{\ifx,#1,\else
+   \strut\vrule\kern-.4pt\hbox to\tcolw{\hss$#1$\hss}\expandafter\sgchartC\fi}
+\def\sgchartD#1#2,{\ifx\relax#1\else\hbox to\tcolw{\hss$#1#2$\hss}\expandafter\sgchartD\fi}
+\def\sgchartE#1#2,{\ifx\relax#1\else
+    \ifx~#1\sgchartS\tcolw\circ \else\sgchartS\tcolw\bullet\fi \expandafter\sgchartE\fi}
+\def\sgchartR{\leaders\vrule height2.8pt depth-2.4pt\hfil}
+\def\sgchartS#1#2{\hbox to#1{\kern-.2pt\sgchartR \ifx\relax#2\else
+   \kern-.7pt$#2$\kern-.7pt\sgchartR\fi\kern-.2pt}}
+\ecatcode
+%++++++++++++++++++++++++++++++++++++++++
+% title stuff
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+    \begin{flushleft}
+        \textbf{\@title} \\ \vskip0.2cm
+        \begingroup
+            \fontsize{14pt}{12pt}\selectfont
+            \courseNumber: \courseName 
+            \vskip0.3cm 
+            \professor
+        \endgroup \vskip0.3cm
+        \dueDate \hfill\rlap{}\bf{\name} \\ \vskip0.1cm
+        \hrulefill
+    \end{flushleft}\egroup 
+}
+\makeatother
+
+\title{\Large\bf{\psetName}}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{plain}
+    \section*{Worksheet 4 (Cardinality) Question 14}
+    Show that the set of real numbers between 0 and 1 (not including the endpoints) has the same cardinality as the set of real numbers.
+    \section*{Answer}
+        Let $S = \set*{x \mid 0 < x < 1}$.
+
+        Let $f: \reals \to S$, where $f(x) = \df{1}{\pi}\tan^{-1}x + \df{1}{2}$. 
+        \begin{lemma}
+            \textbf{$f$ is injective.} An injective function is a function where no two inputs map to the same output. In other words, if $f(x) = f(y)$, then $x = y$. 
+            \\[12pt]
+            Suppose that $a,b \in \reals$.
+            \[f(a) = \df{1}{\pi}\tan^{-1}a + \df{1}{2} \quad f(b) = \df{1}{\pi}\tan^{-1}b + \df{1}{2}\]
+            \begin{align*}
+                f(a) &= f(b) \\
+                \df{1}{\pi}\tan^{-1}a + \df{1}{2} &= \df{1}{\pi}\tan^{-1}b + \df{1}{2} \\
+                \tan^{-1}a &= \tan^{-1}b 
+                \intertext{Since the range of $\tan^{-1}x$ is $\paren*{-\frac{\pi}{2}, \frac{\pi}{2}}$, we can take the tangent of both sides, as $\tan x$ is defined for all values in the range of $\tan^{-1}x$.}
+                \tan\paren*{\tan^{-1}a} &= \tan\paren*{\tan^{-1}b} \\
+                a &= b
+            \end{align*}
+            Since there are no 2 distinct values in the domain $\reals$ that map to the same value in the codomain $S$, $f$ is injective.
+            \label{lemma:injective}
+        \end{lemma}
+
+        \begin{lemma}
+            \textbf{$f$ is surjective.} A surjective function is a function where every element in the codomain is mapped to by at least one element in the domain. In other words, if $y \in S$, then there exists an $x \in \reals$ such that $f(x) = y$.
+            \\[12pt]
+            Suppose that $y \in S$. Suppose that $x = \tan\paren*{\pi\paren*{y - \df{1}{2}}}$, a value in the domain $\reals$.
+            \begin{align*}
+                f(x) &= \df{1}{\pi}\tan^{-1}x + \df{1}{2} \\
+                f\paren*{\tan\paren*{\pi\paren*{y - \df{1}{2}}}} &= \df{1}{\pi}\tan^{-1}\paren*{\tan\paren*{\pi\paren*{y - \df{1}{2}}}} + \df{1}{2} \\
+                &= \df{1}{\pi}\paren*{\pi\paren*{y - \df{1}{2}}} + \df{1}{2} \\
+                &= y - \df{1}{2} + \df{1}{2} \\
+                &= y
+            \end{align*}
+            As for all $y \in S$, there exists an $x \in \reals$ such that $f(x) = y$, specifically $x = \tan\paren*{\pi\paren*{y - \df{1}{2}}}$, $f$ is surjective.
+            \label{lemma:surjective}
+        \end{lemma}
+
+        \begin{lemma}
+            \textbf{$f$ is a bijection.} A bijection is a function that is both injective and surjective. 
+            \\[12pt]
+            Since $f$ is injective from \hyperref[lemma:injective]{Lemma 1} and surjective from \hyperref[lemma:injective]{Lemma 2}, $f$ is a bijection.
+            \label{lemma:bijection}
+        \end{lemma}
+
+        \begin{theorem}
+            Let $S = \set*{x \mid 0 < x < 1}$ and $\reals$ be the set of all real numbers. Then $|S| = |\reals|$.
+            \label{thm:cardinality}
+        \end{theorem}
+        \begin{proof}
+            We will prove the theorem, that the cardinality of the set of real numbers between 0 and 1 is the same as the cardinality of $\reals$, by constructing a function that is a bijection between $S$ and $\reals$. This is because two sets have the same cardinality if and only if there is a bijection between them. 
+
+            Let $f: \reals \to S$, where $f(x) = \df{1}{\pi}\tan^{-1}x + \df{1}{2}$. 
+        
+            The range of $\tan^{-1}x$ is $\paren*{-\df{\pi}{2}, \df{\pi}{2}}$ and by a vertical compression by a factor of $\df{1}{\pi}$, the range becomes $\paren*{-\df{1}{2}, \df{1}{2}}$. We then vertically shift $\df{1}{\pi} \tan^{-1}x$ by $\df{1}{2}$, resulting in a range of $(0, 1)$, our desired codomain for $f$.
+            \\[12pt]
+            $f$ is a bijection (see \hyperref[lemma:bijection]{Lemma 3}). As a bijection exists between $S$ and $\reals$, their cardinalities are the same---$|S| = |\reals|$.
+        \end{proof}
+\end{document} 

@@ -78,9 +78,10 @@
 \usepackage{verbatim} 
 \newcommand{\courseNumber}{MATH 1700}
 \newcommand{\courseName}{Ideas in Mathematics}
+\newcommand{\submission}{Second Submission}
 \newcommand{\professor}{Professor Rimmer}
 \newcommand{\psetName}{Worksheet 5: Uncountable Sets and Cantor's Diagonal Argument}
-\newcommand{\dueDate}{Due: February 22, 2023}
+\newcommand{\dueDate}{Due: March 3, 2023}
 \newcommand{\name}{Denny Cao}
 \pagestyle{fancy}
 \fancyhf{}% clears all header and footer fields
@@ -178,6 +179,8 @@ inner sep=0pt, outer sep=0pt}}
         \textbf{\@title} \\ \vskip0.2cm
         \begingroup
             \fontsize{14pt}{12pt}\selectfont
+            \textbf{\submission}
+            \vskip0.3cm
             \courseNumber: \courseName 
             \vskip0.3cm 
             \professor
@@ -213,13 +216,9 @@ inner sep=0pt, outer sep=0pt}}
     % Answer 1
     \begin{answer} \ 
         \begin{enumerate}[a)] 
-            \item Player 1 has a winning strategy. The strategy is as follows: 
-            \begin{enumerate}[i.]
-                \item For Player 1's first move, they can write any sequence of $X$'s and $O$'s they choose
-                \item Player 1 writes the next symbol in the sequence that would be produced by Cantor's diagonal argument applied to the sequences they have written so far (i.e., Player 1 chooses the symbol that is different from the corresponding symbol in the diagonal).
-            \end{enumerate}
+            \item Player 2 has the winning strategy; they pick the symbol opposite the one placed by Player 1 each turn. 
             The sequence on the bottom will match one of the sequences that Player 1 has written, so Player 1 wins.
-            \item The strategy in a) ensures Player 1 has written every possible sequence of $X$'s and $O$'s in the top row. This corresponds to Cantor's diagonal argument because the strategy constructs a diagonal of symbols that cannot be matched by any row in the grid. The fact that Player 1 wins shows that the set of all possible sequences of $X$'s and $O$'s is "larger" than the set of sequences that can be produced by Cantor's diagonal argument, since Player 1 has managed to match every sequence that can be produced by the diagonal argument.
+            \item The strategy in a) ensures that, the sequence in the bottom is different from the $i$th sequence in the $i$th column, thus ensuring that the sequence on the bottom is not equal to any of the sequences that Player 1 has written. This is the same strategy that Cantor used in his diagonal argument, proposing that the diagonal is a unique sequence that is not equal to any of the sequences in the grid.
         \end{enumerate}
     \end{answer}
 
@@ -303,7 +302,7 @@ inner sep=0pt, outer sep=0pt}}
 
     % Answer 4
     \begin{answer}
-        The narrator is incorrect when stating that the set of numbers between 0 and 2 is bigger than the set of numbers between 0 and 1. Both of these sets are uncountably infinite, as both are the cardinality of the continuum.
+        The narrator is incorrect when stating that the set of numbers between 0 and 2 is bigger than the set of numbers between 0 and 1. They have the same cardinality, as a bijection can be made by multiplying each number between 0 and 1 by 2. 
     \end{answer}
 
     % Question 5
@@ -322,7 +321,7 @@ inner sep=0pt, outer sep=0pt}}
     % Answer 5
     \begin{answer} \
         \begin{enumerate}[a)]
-            \item The number of coworkers I greet is countably infinite. On the first floor, there may be at most three coworkers to meet. On the second floor, there may be at most six coworkers to meet, since each of the one, two, or three coworkers on the second floor would have one, two, or three coworkers respectively to meet on the first floor. Continuing this process, on the $n$-th floor there may be at most $3n$ coworkers to meet. Thus, the number of coworkers I greet is countably infinite.
+            \item The number of coworkers I greet is countably infinite. On the first floor, there may be at most three coworkers to meet. On the second floor, there may be at most six coworkers to meet, since each of the one, two, or three coworkers on the second floor would have one, two, or three coworkers respectively to meet on the first floor. Continuing this process, on the $n$-th floor there may be at most $3n$ coworkers to meet. As $n$ is a natural number, a bijection can be made between the set of natural numbers and the set of all possible numbers of coworkers I greet by mapping $n$ to $3n$. Thus, the maximum number of coworkers I greet has the same cardinality as the set of natural numbers, which is countable.
 
             \item The set of possible lists of how many coworkers I greeted on each floor is uncountable. 
             \begin{proof} By contradiction.
@@ -351,11 +350,7 @@ inner sep=0pt, outer sep=0pt}}
         \end{enumerate}
     \end{answer}
     \section{Reflection}
-    \textbf{What content do I need to review before attempting the worksheet again? Are there any videos I need to rewatch?}
-    
-    I need to review Cantor's diagonal argument. I'm certain my proofs can be made more succinct and elegant. I also need to review how to compare the cardinality of uncountable sets (if that's even possible).
-    \\[12pt]
-    \textbf{What questions would I like to ask my group during the next class discussion?}
+    \textbf{Identify at least one wrong or failed idea that turned out to be helpful or enlightening in some way. For instance, that idea might have helped you solve a problem, or it may have been the start of a conversation that improved your understanding more generally. You can list one of your own ideas, or an idea that originated with a classmate. (Please give your classmate credit!)}
 
-    I would like to ask my group about Question 4. I'm not sure if what I wrote is correct, and I would like to know if there is a better way to explain the cardinality of a subset of the continuum.
+    After discussing with Larry Huang, I realized that, in Question 4, a bijection could actually be formed. Initially, I thought that both sets were uncountably infinite, and thus could not be compared. However, by multiplying each number in the set of numbers between 0 and 1 by 2, a bijection can be formed, meaning that the two sets have the same cardinality.
 \end{document} 

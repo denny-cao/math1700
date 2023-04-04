@@ -1,0 +1,414 @@
+%++++++++++++++++++++++++++++++++++++++++
+\documentclass[article, 12pt]{article}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tabu} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\usepackage{tikz}
+\usepackage{caption} 
+\usepackage{fancyhdr}
+\usepackage{amssymb} % symbols like /therefore
+\usepackage{amsthm} % proofs
+\usepackage{enumerate} % lettered lists
+\usepackage{mathtools} % macros
+\usepackage[ all]{xy} % for diagrams
+\usepackage{tkz-graph}
+\usetikzlibrary{knots}
+\usepackage{xcolor}
+\usetikzlibrary{scopes}
+% \usepackage{xcolor} \pagecolor[rgb]{0.12549019607,0.1294117647,0.13725490196} \color[rgb]{0.82352941176,0.76862745098,0.62745098039} % dark theme
+\theoremstyle{definition}
+\newtheorem{example}{Example}[subsubsection]
+\newtheorem*{remark}{Remark}
+\newtheorem{theorem}{Theorem}[subsubsection]
+\newtheorem{definition}{Definition}[subsubsection]
+\newtheorem{corollary}{Corollary}[subsubsection]
+\hypersetup{
+	colorlinks=false,      % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{tikz,pgfplots}
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{arrows.meta}
+\tikzset{>=latex} % for LaTeX arrow head
+\contourlength{1.2pt}
+
+\colorlet{xcol}{blue!70!black}
+\colorlet{vcol}{green!60!black}
+\colorlet{myred}{red!70!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{mygreen}{green!70!black}
+\colorlet{mydarkred}{myred!70!black}
+\colorlet{mydarkblue}{myblue!60!black}
+\colorlet{mydarkgreen}{mygreen!60!black}
+\colorlet{acol}{red!50!blue!80!black!80}
+\tikzstyle{CM}=[red!40!black,fill=red!80!black!80]
+\tikzstyle{xline}=[xcol,thick,smooth]
+\tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                  top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{faded mass}=[dashed,line width=0.1,red!30!black!40,fill=red!40!black!10,rounded corners=1,
+                        top color=red!40!black!10,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+\def\rope#1{ \draw[black,line width=1.4] #1; \draw[rope,line width=1.1] #1; }
+\tikzstyle{force}=[->,myred,very thick,line cap=round]
+\tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
+\tikzstyle{Fproj}=[force,myred!40]
+\tikzstyle{myarr}=[-{Latex[length=3,width=2]},thin]
+\def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+\DeclareMathOperator{\sn}{sn}
+\DeclareMathOperator{\cn}{cn}
+\DeclareMathOperator{\dn}{dn}
+\def\N{80} % number of samples in plots
+
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\usepackage{siunitx} % units
+\usepackage{verbatim} 
+\newcommand{\courseNumber}{MATH 1700}
+\newcommand{\courseName}{Ideas in Mathematics}
+\newcommand{\professor}{Professor Rimmer}
+\newcommand{\psetName}{Worksheet 9: Modular Arithmetic First Submission}
+\newcommand{\dueDate}{Due: March 31, 2023}
+\newcommand{\name}{Denny Cao}
+\pagestyle{fancy}
+\fancyhf{}% clears all header and footer fields
+\fancyfoot[C]{--~\thepage~--}
+\renewcommand*{\headrulewidth}{0.4pt}
+\renewcommand*{\footrulewidth}{0pt}
+\lhead{\name}
+\chead{\courseNumber: \courseName}
+\rhead{\professor}
+
+% new theorem for questions and answers
+
+\newtheorem{question}{Question}
+
+\newtheorem{answer}{Answer}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}% clears all header and footer fields
+  \fancyfoot[C]{--~\thepage~--}%
+  \renewcommand*{\headrulewidth}{0pt}%
+  \renewcommand*{\footrulewidth}{0pt}%
+}
+
+% Shortcuts
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil} % ceil function
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor} % floor function
+
+\DeclarePairedDelimiter\paren{(}{)} % parenthesis
+
+\newcommand{\df}{\displaystyle\frac} % displaystyle fraction
+\newcommand{\qeq}{\overset{?}{=}} % questionable equality
+
+\newcommand{\Mod}[1]{\;\mathrm{mod}\; #1} % modulo operator
+
+\newcommand{\comp}{\circ} % composition
+
+% Sets
+\DeclarePairedDelimiter\set{\{}{\}}
+\newcommand{\unite}{\cup}
+\newcommand{\inter}{\cap}
+
+\newcommand{\reals}{\mathbb{R}} % real numbers: textbook is Z^+ and 0
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\rats}{\mathbb{Q}}
+
+\newcommand{\degree}{^\circ}
+
+% Counting
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+% Relations
+\newcommand{\rel}{\mathcal{R}} % relation
+
+\setlength\parindent{0pt}
+
+% Directed Graphs
+\usetikzlibrary{arrows}
+\tikzset{vertex/.style = {shape=circle,draw, minimum size=1.5em,
+inner sep=0pt, outer sep=0pt}}
+\tikzset{edge/.style = {->,> = latex'}}
+
+% Contradiction
+\newcommand{\contradiction}{{\hbox{%
+    \setbox0=\hbox{$\mkern-3mu\times\mkern-3mu$}%
+    \setbox1=\hbox to0pt{\hss$\times$\hss}%
+    \copy0\raisebox{0.5\wd0}{\copy1}\raisebox{-0.5\wd0}{\box1}\box0
+}}}
+
+% Sign Charts
+\newdimen\tcolw \tcolw=2.5em % the column width
+\edef\ecatcode{\catcode`&=\the\catcode`&\relax}\catcode`&=4
+\def\sgchart#1#2{\vbox{\offinterlineskip\halign{\hfil##\quad&##\hfil\crcr\sgchartA#2,:,%
+   \omit\sgchartR&\kern.2pt\sgchartS{.5\tcolw}\relax\sgchartE#1,\relax,%
+   \sgchartS{.5\tcolw}\relax\cr
+   \noalign{\kern2pt}&\def~{}\kern.5\tcolw\sgchartD#1,\relax,\cr}}}
+\def\sgchartA#1:#2,{\cr\ifx,#1,\else $#1$&\sgchartB#2{}\expandafter\sgchartA\fi}
+\def\sgchartB#1{\hbox to\tcolw{\hss$#1$\hss}\sgchartC}
+\def\sgchartC#1{\ifx,#1,\else
+   \strut\vrule\kern-.4pt\hbox to\tcolw{\hss$#1$\hss}\expandafter\sgchartC\fi}
+\def\sgchartD#1#2,{\ifx\relax#1\else\hbox to\tcolw{\hss$#1#2$\hss}\expandafter\sgchartD\fi}
+\def\sgchartE#1#2,{\ifx\relax#1\else
+    \ifx~#1\sgchartS\tcolw\circ \else\sgchartS\tcolw\bullet\fi \expandafter\sgchartE\fi}
+\def\sgchartR{\leaders\vrule height2.8pt depth-2.4pt\hfil}
+\def\sgchartS#1#2{\hbox to#1{\kern-.2pt\sgchartR \ifx\relax#2\else
+   \kern-.7pt$#2$\kern-.7pt\sgchartR\fi\kern-.2pt}}
+\ecatcode
+%++++++++++++++++++++++++++++++++++++++++
+% title stuff
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+    \begin{flushleft}
+        \textbf{\@title} \\ \vskip0.2cm
+        \begingroup
+            \fontsize{14pt}{12pt}\selectfont
+            \courseNumber: \courseName 
+            \vskip0.3cm 
+            \professor
+        \endgroup \vskip0.3cm
+        \dueDate \hfill\rlap{}\bf{\name} \\ \vskip0.1cm
+        \hrulefill
+    \end{flushleft}\egroup 
+}
+\makeatother
+
+\title{\Large\bf{\psetName}}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{plain}
+    \section{Warm-Up Problems}
+    % Question 1
+    \begin{question}
+        If today is Friday, what day of the week will it be 3724 days from now?
+    \end{question} 
+    % Answer 1
+    \begin{answer}
+        $3724\Mod{7} = 0$, so it will be Friday.
+    \end{answer}
+    % Question 2
+    \begin{question}
+        A famous episode of The Simpsons displays the equation
+        \[ 1782^{12} + 1841^{12} = 4472^{12} \]
+        Indeed, if your calculator is not very precise, and you add $1782^{12}$ to $1841^{12}$ and take the twelfth root, you will see $4472^{12}$, but that is a rounding error! In fact, Fermat's Last Theorem (claimed by Fermat around 1637, and finally proven by Wiles and Taylor in 1994) states that for whole numbers $a$, $b$, $c$, and $n$, the equation
+        \[ a^n + b^n = c^n \]
+        can only be true when $n=2$. (See the above equation, with $n=12$, must be false.). Reduce $\Mod{2}$ to show that $1782^{12} + 1841^{12} \neq 4472^{12}$.
+    \end{question}
+    % Answer 2
+    \begin{answer} \
+        \begin{proof}
+            Assume for purposes of contradiction that $1782^{12} + 1841^{12} = 4472^{12}$.
+            \begin{align*}
+                1782^{12} \Mod{2} &= 0^{12} \Mod{2} \\
+                1841^{12} \Mod{2} &= 1^{12} \Mod{2} \\
+                4472^{12} \Mod{2} &= 0^{12} \Mod{2} \\
+                \implies 0^{12} + 1^{12} &= 0^{12} \\
+                \implies 0 + 1 &= 0 \ \contradiction
+            \end{align*}
+            We reach a contradiction, which means that $1782^{12} + 1841^{12} \neq 4472^{12}$.
+        \end{proof}
+    \end{answer}
+    % Question 3
+    \begin{question}
+        Compute $13^{100}\Mod{7}$.
+    \end{question}
+    % Answer 3
+    \begin{answer}
+        \begin{align*}
+            13 &\equiv 6 \Mod{7} \\
+            13^2 &\equiv 6 \Mod{7} \cdot 6 \Mod{7} \\
+            6^2 \Mod{7} &\equiv 1 \Mod{7} \\
+            13^{100} &\equiv 6^{100} \Mod 7 \\
+            6^{100} \Mod {7} &= (6^2)^{50} \Mod{7} \\
+            13^{100} &\equiv 1 \Mod{7}
+        \end{align*}
+    \end{answer}
+    \section{Another Theorem of Fermat}
+    % Question 4
+    \begin{question}
+        For each number $n$ from 1 to 4, compute, $n^2$, $n^3$, and $n^4 \Mod{5}$. Make a table of your results. Do you notice anything surprising?
+    \end{question}
+    % Answer 4
+    \begin{answer} \
+        \begin{figure}[H]
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                $n$ & $n^2$ & $n^3$ & $n^4$ \\
+                \hline
+                1 & $ 1 \Mod{5} = 1 $ & $ 1 \Mod{5} = 1 $ & $ 1 \Mod{5} = 1 $\\
+                2 & $ 4 \Mod{5} = 4 $ & $ 8 \Mod{5} = 3 $ & $ 16 \Mod{5} = 1 $\\
+                3 & $ 9 \Mod{5} = 4 $ & $27 \Mod{5} = 2 $ & $81 \Mod{5} = 1 $\\
+                4 & $ 16 \Mod{5} = 1 $ & $64 \Mod{5} = 4 $ & $256 \Mod{5} = 1 $ \\
+                \hline
+            \end{tabular}
+        \end{figure}
+        All $n^4 \Mod{5}$ are $1$. 
+    \end{answer}
+    % Question 5
+    \begin{question}
+        Repeat the same problem for the numbers 1 through 6, working $\Mod{7}$.
+    \end{question}
+    % Answer 5
+    \begin{answer} \
+        \begin{figure}[H]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $n^2$ & $n^3$ & $n^4$ & $n^5$ & $n^6$ \\
+                \hline
+                1 & $ 1 \Mod{7} = 1 $ & $ 1 \Mod{7} = 1 $ & $ 1 \Mod{7} = 1 $ & $ 1 \Mod{7} = 1 $ & $ 1 \Mod{7} = 1 $\\
+                2 & $ 4 \Mod{7} = 4 $ & $ 8 \Mod{7} = 1 $ & $ 16 \Mod{7} = 2 $ & $ 32 \Mod{7} = 4 $ & $ 64 \Mod{7} = 1 $\\
+                3 & $ 9 \Mod{7} = 2 $ & $27 \Mod{7} = 6 $ & $81 \Mod{7} = 4 $ & $243 \Mod{7} = 5 $ & $729 \Mod{7} = 1 $\\
+                4 & $ 16 \Mod{7} = 2 $ & $64 \Mod{7} = 1 $ & $256 \Mod{7} = 4 $ & $1024 \Mod{7} = 2 $ & $4096 \Mod{7} = 1 $ \\
+                5 & $ 25 \Mod{7} = 4 $ & $125 \Mod{7} = 6 $ & $625 \Mod{7} = 2 $ & $3125 \Mod{7} = 3 $ & $15625 \Mod{7} = 1 $ \\
+                6 & $ 36 \Mod{7} = 1 $ & $216 \Mod{7} = 6 $ & $1296 \Mod{7} = 1 $ & $7776 \Mod{7} = 6 $ & $46656 \Mod{7} = 1 $ \\
+                \hline
+            \end{tabular}
+        \end{figure}
+        All $n^6 \Mod{7}$ are $1$.
+    \end{answer}
+    % Question 6
+    \begin{question}
+        Repeat this problem for 9, 11 and 13. (You do not need to include a table for 13 with your first submission, only your second submission.) How large should the exponents be before you discover a similar pattern? Does the pattern continue to hold for all odd numbers? Make a guess about when this pattern does and doesn't hold.
+    \end{question}
+    % Answer 6
+    \begin{answer} \
+        \begin{figure}[H]
+            \centering
+            \resizebox{\columnwidth}{!}{%
+
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $n^2$ & $n^3$ & $n^4$ & $n^5$ & $n^6$ & $n^7$ & $n^8$  \\
+                1 & $1 \Mod{9} = 1$ & $1 \Mod{9} = 1$ & $1 \Mod{9} = 1$ & $1 \Mod{9} = 1$ & $1 \Mod{9} = 1$ & $1 \Mod{9} = 1$   & $1 \Mod{9} = 1$ \\
+                2 & $4 \Mod{9} = 4$ & $8 \Mod{9} = 8$ & $16 \Mod{9} = 7$ & $32 \Mod{9} = 5$ & $64 \Mod{9} = 1$ & $128 \Mod{9} = 2$ & $256 \Mod{9} = 4$ \\
+                3 & $9 \Mod{9} = 0$ & $27 \Mod{9} = 0$ & $81 \Mod{9} = 0$ & $243 \Mod{9} = 0$ & $729 \Mod{9} = 0$ & $2187 \Mod{9} = 0$ & $6561 \Mod{9} = 0$ \\
+                4 & $16 \Mod{9} = 7$ & $64 \Mod{9} = 1$ & $256 \Mod{9} = 4$ & $1024 \Mod{9} = 7$ & $4096 \Mod{9} = 1$ & $16384 \Mod{9} = 4$ & $65536 \Mod{9} = 7$ \\
+                5 & $25 \Mod{9} = 7$ & $125 \Mod{9} = 4$ & $625 \Mod{9} = 1$ & $3125 \Mod{9} = 7$ & $15625 \Mod{9} = 4$ & $78125 \Mod{9} = 1$ & $390625 \Mod{9} = 7$ \\
+                6 & $36 \Mod{9} = 0$ & $216 \Mod{9} = 0$ & $1296 \Mod{9} = 0$ & $7776 \Mod{9} = 0$ & $46656 \Mod{9} = 0$ & $279936 \Mod{9} = 0$ & $1679616 \Mod{9} = 0$ \\
+                7 & $49 \Mod{9} = 4$ & $343 \Mod{9} = 1$ & $2401 \Mod{9} = 7$ & $16807 \Mod{9} = 4$ & $117649 \Mod{9} = 1$ & $823543 \Mod{9} = 7$ & $5764801 \Mod{9} = 4$ \\
+                8 & $64 \Mod{9} = 1$ & $512 \Mod{9} = 7$ & $4096 \Mod{9} = 1$ & $32768 \Mod{9} = 4$ & $262144 \Mod{9} = 7$ & $2097152 \Mod{9} = 1$ & $16777216 \Mod{9} = 4$ \\
+                \hline
+            \end{tabular}}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \resizebox{\columnwidth}{!}{%
+
+            \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $n^2$ & $n^3$ & $n^4$ & $n^5$ & $n^6$ & $n^7$ & $n^8$ & $n^9$ & $n^{10}$ \\
+                \hline
+                1 & $1 \Mod{11} = 1$ & $1 \Mod{11} = 1$& $1 \Mod{11} = 1$& $1 \Mod{11} = 1$& $1 \Mod{11} = 1$& $1 \Mod{11} = 1$& $1 \Mod{11} = 1$& $1 \Mod{11} = 1$& $1 \Mod{11} = 1$\\
+                2 & $4 \Mod{11} = 4$ & $16 \Mod{11} = 5$& $64 \Mod{11} = 9$& $256 \Mod{11} = 3$& $1024 \Mod{11} = 4$& $4096 \Mod{11} = 5$& $16384 \Mod{11} = 9$& $65536 \Mod{11} = 3$& $262144 \Mod{11} = 4$\\
+                3 & $9 \Mod{11} = 9$ & $81 \Mod{11} = 1$& $729 \Mod{11} = 9$& $6561 \Mod{11} = 1$& $59049 \Mod{11} = 9$& $531441 \Mod{11} = 1$& $4782969 \Mod{11} = 9$& $43046721 \Mod{11} = 1$& $387420489 \Mod{11} = 9$\\
+                4 & $16 \Mod{11} = 5$ & $256 \Mod{11} = 4$& $4096 \Mod{11} = 5$& $65536 \Mod{11} = 9$& $1048576 \Mod{11} = 3$& $16777216 \Mod{11} = 4$& $268435456 \Mod{11} = 5$& $4294967296 \Mod{11} = 9$& $68719476736 \Mod{11} = 3$\\
+                5 & $25 \Mod{11} = 3$ & $125 \Mod{11} = 9$& $625 \Mod{11} = 3$& $3125 \Mod{11} = 9$& $15625 \Mod{11} = 3$& $78125 \Mod{11} = 9$& $390625 \Mod{11} = 3$& $1953125 \Mod{11} = 9$& $9765625 \Mod{11} = 3$\\
+                6 & $36 \Mod{11} = 9$ & $216 \Mod{11} = 1$& $1296 \Mod{11} = 9$& $7776 \Mod{11} = 1$& $46656 \Mod{11} = 9$& $279936 \Mod{11} = 1$& $1679616 \Mod{11} = 9$& $10077696 \Mod{11} = 1$& $60466176 \Mod{11} = 9$\\
+                7 & $49 \Mod{11} = 1$ & $343 \Mod{11} = 9$& $2401 \Mod{11} = 1$& $16807 \Mod{11} = 9$& $117649 \Mod{11} = 1$& $823543 \Mod{11} = 9$& $5764801 \Mod{11} = 1$& $40353607 \Mod{11} = 9$& $282475249 \Mod{11} = 1$\\
+                8 & $64 \Mod{11} = 10$ & $512 \Mod{11} = 5$& $4096 \Mod{11} = 10$& $32768 \Mod{11} = 5$& $262144 \Mod{11} = 10$& $2097152 \Mod{11} = 5$& $16777216 \Mod{11} = 10$& $134217728 \Mod{11} = 5$& $1073741824 \Mod{11} = 10$\\
+                9 & $81 \Mod{11} = 7$ & $729 \Mod{11} = 9$& $6561 \Mod{11} = 7$& $59049 \Mod{11} = 9$& $531441 \Mod{11} = 7$& $4782969 \Mod{11} = 9$& $43046721 \Mod{11} = 7$& $387420489 \Mod{11} = 9$& $3486784401 \Mod{11} = 7$\\
+                10 & $100 \Mod{11} = 9$ & $1000 \Mod{11} = 1$& $10000 \Mod{11} = 9$& $100000 \Mod{11} = 1$& $1000000 \Mod{11} = 9$& $10000000 \Mod{11} = 1$& $100000000 \Mod{11} = 9$& $1000000000 \Mod{11} = 1$& $10000000000 \Mod{11} = 9$\\
+                \hline
+            \end{tabular}}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \resizebox{\columnwidth}{!}{%
+
+            \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $n^2$ & $n^3$ & $n^4$ & $n^5$ & $n^6$ & $n^7$ & $n^8$ & $n^9$ & $n^{10}$ & $n^{11}$ & $n^{12}$ \\
+                \hline
+                1 & $1 \Mod{12} = 1$ & $1 \Mod{12} = 1$& $1 \Mod{12} = 1$& $1 \Mod{12} = 1$& $1 \Mod{12} = 1$& $1 \Mod{12} = 1$& $1 \Mod{12} = 1$& $1 \Mod{12} = 1$& $1 \Mod{12} = 1$& $1 \Mod{12} = 1$& $1 \Mod{12} = 1$ \\
+                2 & $4 \Mod{12} = 4$ & $16 \Mod{12} = 4$& $64 \Mod{12} = 4$& $256 \Mod{12} = 4$& $1024 \Mod{12} = 4$& $4096 \Mod{12} = 4$& $16384 \Mod{12} = 4$& $65536 \Mod{12} = 4$& $262144 \Mod{12} = 4$& $1048576 \Mod{12} = 4$& $4194304 \Mod{12} = 4$ \\
+                3 & $9 \Mod{12} = 9$ & $81 \Mod{12} = 9$& $729 \Mod{12} = 9$& $6561 \Mod{12} = 9$& $59049 \Mod{12} = 9$& $531441 \Mod{12} = 9$& $4782969 \Mod{12} = 9$& $43046721 \Mod{12} = 9$& $387420489 \Mod{12} = 9$& $3486784401 \Mod{12} = 9$& $31381059609 \Mod{12} = 9$ \\
+                4 & $16 \Mod{12} = 4$ & $256 \Mod{12} = 4$& $4096 \Mod{12} = 4$& $65536 \Mod{12} = 4$& $1048576 \Mod{12} = 4$& $16777216 \Mod{12} = 4$& $268435456 \Mod{12} = 4$& $4294967296 \Mod{12} = 4$& $68719476736 \Mod{12} = 4$& $1099511627776 \Mod{12} = 4$& $17592186044416 \Mod{12} = 4$ \\
+                5 & $25 \Mod{12} = 1$ & $625 \Mod{12} = 1$& $15625 \Mod{12} = 1$& $390625 \Mod{12} = 1$& $9765625 \Mod{12} = 1$& $244140625 \Mod{12} = 1$& $6103515625 \Mod{12} = 1$& $152587890625 \Mod{12} = 1$& $3814697265625 \Mod{12} = 1$& $95367431640625 \Mod{12} = 1$& $2384185791015625 \Mod{12} = 1$ \\
+                6 & $36 \Mod{12} = 0$ & $1296 \Mod{12} = 0$& $46656 \Mod{12} = 0$& $279936 \Mod{12} = 0$& $1679616 \Mod{12} = 0$& $10077696 \Mod{12} = 0$& $60466176 \Mod{12} = 0$& $362797056 \Mod{12} = 0$& $2176782336 \Mod{12} = 0$& $13060694016 \Mod{12} = 0$& $78364164096 \Mod{12} = 0$ \\
+                7 & $49 \Mod{12} = 1$ & $2401 \Mod{12} = 1$& $16807 \Mod{12} = 1$& $117649 \Mod{12} = 1$& $823543 \Mod{12} = 1$& $5764801 \Mod{12} = 1$& $40353607 \Mod{12} = 1$& $282475249 \Mod{12} = 1$& $1977326743 \Mod{12} = 1$& $13841287201 \Mod{12} = 1$& $96889010407 \Mod{12} = 1$ \\
+                8 & $64 \Mod{12} = 4$ & $4096 \Mod{12} = 4$& $262144 \Mod{12} = 4$& $16777216 \Mod{12} = 4$& $1073741824 \Mod{12} = 4$& $68719476736 \Mod{12} = 4$& $4398046511104 \Mod{12} = 4$& $281474976710656 \Mod{12} = 4$& $18014398509481984 \Mod{12} = 4$& $1152921504606846976 \Mod{12} = 4$& $73786976294838206464 \Mod{12} = 4$ \\
+                9 & $81 \Mod{12} = 9$ & $6561 \Mod{12} = 9$& $531441 \Mod{12} = 9$& $43046721 \Mod{12} = 9$& $3486784401 \Mod{12} = 9$& $31381059609 \Mod{12} = 9$& $282429536481 \Mod{12} = 9$& $2541865828329 \Mod{12} = 9$& $22876792454961 \Mod{12} = 9$& $205891132094649 \Mod{12} = 9$& $1853020188851841 \Mod{12} = 9$ \\
+                10 & $100 \Mod{12} = 4$ & $10000 \Mod{12} = 4$& $1000000 \Mod{12} = 4$& $100000000 \Mod{12} = 4$& $10000000000 \Mod{12} = 4$& $1000000000000 \Mod{12} = 4$& $100000000000000 \Mod{12} = 4$& $10000000000000000 \Mod{12} = 4$& $1000000000000000000 \Mod{12} = 4$& $100000000000000000000 \Mod{12} = 4$& $10000000000000000000000 \Mod{12} = 4$ \\
+                11 & $121 \Mod{12} = 1$ & $14641 \Mod{12} = 1$& $161051 \Mod{12} = 1$& $1771561 \Mod{12} = 1$& $19487171 \Mod{12} = 1$& $214358881 \Mod{12} = 1$& $2357947691 \Mod{12} = 1$& $25937424601 \Mod{12} = 1$& $285311670611 \Mod{12} = 1$& $3138428376721 \Mod{12} = 1$& $34522712143931 \Mod{12} = 1$ \\ 
+                \hline
+            \end{tabular}}
+        \end{figure}
+        \textbf{I couldn't find a pattern... I'll try to redo these tables for the second submission.}
+    \end{answer}
+    \section{Check Digits}
+    % Question 7
+    \begin{question}
+        U.S. postal money orders have a 10-digit serial number plus an additional check digit. The check digit is a number between 0 and 6, which is congruent to the serial number mod 7. That is, $\text{serial number} \equiv \text{check digit} \Mod{7}$. Find the check digit for the serial number below. You may use your computer as a calculator.
+        \[ 3421054606\_ \]
+    \end{question}
+    (Note that the postal money orders do \textit{not} compute check digits the same way that we say in the videos, but instead in the way described above.)
+
+    Recall that the formula for 12-digit UPC codes $d_1d_2d_3d_4d_5d_6d_7d_8d_9d_{10}d_{11}d_{12}$ is $3d_1 + d_2 + 3d_3 + d_4 + 3d_5 + d_6 + 3d_7 + d_8 + 3d_9 + d_{10} + 3d_{11} + d_{12} \equiv 0 \Mod{10}$.
+
+    % Answer 7
+    \begin{answer}
+        \[ 3421054606 \equiv 4 \Mod{7} \]
+        The check digit is 4.   
+    \end{answer}
+
+    % Question 8
+    \begin{question}
+        The paper that this worksheet was originally printed on came in a package of 500 sheets with the UPC code below. What was the last digit?
+    \end{question}
+
+    % Answer 8
+    \begin{answer}
+        \begin{align*}
+            3(8) + 4 + 3(2) + 3 + 3(5) + 6 + 3(0) + 5 + 3(5) + 4 + 3(1) + x &\equiv 0 \Mod{10} \\
+            4 + 4 + 6 + 3 + 5 + 6 + 0 + 5 + 5 + 4 + 3 + x &\equiv 0 \Mod{10} \\
+            45 + x &\equiv 0 \Mod{10} \\
+            x &\equiv 5 \Mod{10} \\
+        \end{align*}
+        The last digit is 5.
+    \end{answer}
+
+    % Question 9
+    \begin{question}
+        The correct UPC for a product is
+        \[ 051000025265 \]
+        Explain why neither
+        \[ 051000026255 \text{ nor } 050000055265 \]
+        register as errors.
+    \end{question}
+
+    % Answer 9
+    \begin{answer}
+        \begin{proof}
+            Neither 051000026255 nor 050000055265 register as errors because the method used to check the UPCS, $3d_1 + d_2 + 3d_3 + d_4 + 3d_5 + d_6 + 3d_7 + d_8 + 3d_9 + d_{10} + 3d_{11} + d_{12} \equiv 0 \Mod{10}$, is true for all 3 codes.
+        \end{proof}
+    \end{answer}
+
+    \section{Reflection}
+    \textbf{What content do I need to review before attempting the worksheet again? Are there any videos I need to rewatch?}
+
+    I need to review Fermat's Little Theorem, as I do not understand how it can be obtained through the tables I made.
+    \\[12pt]
+    \textbf{What questions would I like to ask my group during the next class discussion?}
+
+    What pattern did you find? How did you find it?
+\end{document} 
