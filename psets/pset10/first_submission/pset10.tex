@@ -577,7 +577,65 @@
         \end{figure}
     \end{answer}
     \section{Social Networks}
+    % Question 9
     \begin{question}
         Consider the following social network, where each vertex is a Simpsons character, and each edge represents a friendship between characters.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{simpsons.png}
+        \end{figure}
+        \begin{enumerate}[(a)]
+            \item Determine the number of friends for each character. Do you know another word for number of friends?
+            \item What is the strength of each of the following friendships?
+            \begin{enumerate}[(i)]
+                \item Flanders and Milhouse
+                \item Maggie and Homer
+                \item Ralph and Bart
+            \end{enumerate}
+            \item Of all the people in the Simpsons graph, whose friendship is the strongest?
+        \end{enumerate}
     \end{question}
+    % Answer 9
+    \begin{answer} \
+        \begin{enumerate}[(a)]
+            \item Another word for number of friends is degree. The degree of a vertex is the number of edges incident on that vertex. The degree of each vertex is listed in the table below.             
+            \begin{figure}[H]
+                \centering
+                \begin{tabular}{|c|c|c|c|}
+                    \hline
+                    & \# Friends & & \# Friends \\
+                    \hline
+                    Bart & 4 & Maggie & 4 \\
+                    \hline
+                    Flanders & 2 & Marge & 3 \\
+                    \hline
+                    Milhouse & 2 & Lisa & 5 \\
+                    Homer & 4 & Ralph & 2 \\
+                    \hline
+                \end{tabular}
+            \end{figure}
+            \item \begin{enumerate}[(i)]
+                \item 2
+                \item 4
+                \item 2
+            \end{enumerate}
+            \item Homer and Lisa have the strongest friendship, with a strength of 5.
+        \end{enumerate}
+    \end{answer}
+    % Question 10
+    \begin{question}
+        Explain why, in any social network, there must be two people with exactly the same number of friends.
+    \end{question}
+    % Answer 10
+    \begin{answer}
+        \begin{proof}
+            Let $n$ be the number of people within a social network. The maximum number of friends that any person can have is $n-1$. Each person must have a degree of one of the $n-1$ possible values. However, since there are $n$ people, one of the possible values must be repeated by the pigeonhole principle.
+        \end{proof}
+    \end{answer}
+    \section{Reflection}
+    \textbf{What content do I need to review before attempting the worksheet again? Are there any videos I need to rewatch?}
+    This material is familar to me as I am currently taking a course on graph theory. However, I do not really remember much about edge connectivity, so I will need to review that before attempting the worksheet again.
+    \\[12pt]
+    \textbf{What questions would I like to ask my group during the next class discussion?}
+    How can I determine the strength of a friendship in a social network? Is this another way to say edge connectivity, which is the minimum number of edges in an edge cut?
 \end{document} 
