@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.19)  31 MAR 2023 23:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.19)  5 MAY 2023 23:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/akkaro/math1700/portfolio/problem_14.tex
-(/home/akkaro/math1700/portfolio/problem_14.tex
+**/home/akkaro/math1700/final/final.tex
+(/home/akkaro/math1700/final/final.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -704,7 +704,7 @@ File: tikzlibraryscopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \c@theorem=\count353
 \c@definition=\count354
 \c@corollary=\count355
-Package hyperref Info: Option `colorlinks' set `true' on input line 35.
+Package hyperref Info: Option `colorlinks' set `false' on input line 36.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/physics/physics.sty
 Package: physics 
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
@@ -814,33 +814,33 @@ Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
 \c@question=\count375
 \c@answer=\count376
 \tcolw=\dimen369
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 195.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 194.
 
 
 LaTeX Warning: Unused global option(s):
     [article].
 
-(./problem_14.aux)
-\openout1 = `problem_14.aux'.
+(./final.aux)
+\openout1 = `final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 194.
+LaTeX Font Info:    ... okay on input line 194.
  (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count377
@@ -894,22 +894,22 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 195.
-(./problem_14.out) (./problem_14.out)
+Package hyperref Info: Link coloring OFF on input line 194.
+(./final.out) (./final.out)
 \@outlinefile=\write5
-\openout5 = `problem_14.out'.
+\openout5 = `final.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 195.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 194.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 195.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 194.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 195.
+Package xypdf Info: Line width: 0.47998pt on input line 194.
 
 
 Package siunitx Warning: Detected the "physics" package:
@@ -925,11 +925,11 @@ Package siunitx Warning: Detected the "physics" package:
 (/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 195.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 194.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 195.
+ on input line 194.
 
 [1
 
@@ -941,23 +941,80 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2] (./problem_14.aux)
-Package rerunfilecheck Info: File `problem_14.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+[2]
+pdfTeX warning (ext4): destination with the same identifier (name{question.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.295     \begin{question} \
+                            
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3]
+pdfTeX warning (ext4): destination with the same identifier (name{answer.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.324     \begin{answer} \
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{question.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.354     \begin{question} \
+                            
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4]
+pdfTeX warning (ext4): destination with the same identifier (name{answer.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.366         \begin{answer} \
+                              
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[5]
+pdfTeX warning (ext4): destination with the same identifier (name{question.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.477         I
+                have 7 pairs of socks in my drawer, one of each color of the...
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6] (./final.aux)
+Package rerunfilecheck Info: File `final.out' has not changed.
+(rerunfilecheck)             Checksum: 54AD87843787E6C08F5EDAF2D937D502;489.
  ) 
 Here is how much of TeX's memory you used:
- 44211 strings out of 475071
- 1018725 string characters out of 5778915
- 1507146 words of memory out of 5000000
- 64924 multiletter control sequences out of 15000+600000
+ 44421 strings out of 475071
+ 1021878 string characters out of 5778915
+ 1510207 words of memory out of 5000000
+ 65100 multiletter control sequences out of 15000+600000
  476911 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,14n,89p,3275b,984s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on problem_14.pdf (2 pages, 103469 bytes).
+ 84i,11n,89p,3266b,1170s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on final.pdf (6 pages, 92227 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 127 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
